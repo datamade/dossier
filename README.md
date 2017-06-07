@@ -22,3 +22,25 @@ I know this is the type of tool you've though of for a while. It would be great 
 
 ## Familysearch.org
 
+# Sketch
+
+The work of collecting information about an entity can organized into the following stages
+
+1. **Physical** Collection of physical material.
+2. **Symbols** extracting symbols from the physical material (OCR, typing, scraping)
+3. **Signifiers** deciding which symbols are references to entities and attributes
+4. **Interpretation of Abstract Claims** interpreting the signifiers of a text to be making an abstract claim about the world (i.e. that **A** person referenced as "John Smith" exists; **A** person referenced as "John Smith" was age 22 at the now-time of this text
+5. **Entity Resolution** Positing that a signifier or signifiers are referential to particular entity
+6. **Adjudication of Claims** Accepting or rejecting abstract claims for a particular entity
+
+Informing all of this is a data model. This is more or less formal model of the portion of the world that the researcher cares about and her belief about how those portions are related. For example, for security force monitoring, we believe and care to believe that security forces are organizations composoed of sub organizations; these oranizations and suborganizations have names, that they have commanding officers; etc. We believe that those commanding officers are people, and that these people have names, and birthdates, and previous posts. We may also believe that they have favorite colors, but probably won't include that in our model.
+
+The data model determines 
+
+- universe of material we will collect
+- what classes of signifiers we care about extracting
+- what types of claims we will bother making interpretations about
+- what type of claims can be condordant or discordant
+
+
+
