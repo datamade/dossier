@@ -27,8 +27,8 @@ I know this is the type of tool you've though of for a while. It would be great 
 The work of collecting information about an entity can organized into the following stages
 
 1. **Physical** Collection of physical material.
-2. **Symbols** extracting symbols from the physical material (OCR, typing, scraping)
-3. **Signifiers** deciding which symbols are references to entities and attributes
+2. **Tokens** interpeting tokens from the physical material (OCR, typing, scraping) https://plato.stanford.edu/entries/types-tokens/#DisBetTypTok
+3. **Signifiers** deciding which tokens are references to entities and attributes
 4. **Interpretation of Abstract Claims** interpreting the signifiers of a text to be making an abstract claim about the world (i.e. that **A** person referenced as "John Smith" exists; **A** person referenced as "John Smith" was age 22 at the now-time of this text
 5. **Entity Resolution** Positing that a signifier or signifiers are referential to particular entity
 6. **Adjudication of Claims** Accepting or rejecting abstract claims for a particular entity
