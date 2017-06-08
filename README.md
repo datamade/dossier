@@ -22,6 +22,9 @@ I know this is the type of tool you've though of for a while. It would be great 
 
 ## Familysearch.org
 
+## Opencorporates
+- https://blog.opencorporates.com/2014/01/08/understanding-corporate-networks-part-4-how-we-record-the-data/
+
 # Sketch
 
 The work of collecting information about an entity can organized into the following stages
