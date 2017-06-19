@@ -54,8 +54,10 @@ If we have a spreadsheet that has a columns call "donor", "recipient", and "amou
 - There exists some entity with designated by the token in the "recipient" field.
 - The entity designated by the token in the "recipient" field recieved an amount of money designed by the "amount" field from the entity designated by the token in the "donor" field
 
-### 5. **Entity Resolution** Positing that a signifier or signifiers are referential to particular entity
-We have to often decide which signifiers are signified the **same** thing. 
+### 5. **Entity Resolution** 
+Positing that a signifier or signifiers are referential to particular entity
+
+We have to often decide which signifiers designate the **same** thing. 
 
 ### 6. **Adjudication of Claims** Accepting or rejecting abstract claims for a particular entity
 Upon deciding which signifiers are about the same entity, we resolve the abstract claims to specific claims about entitites. This claims can sometimes conflict. We have to choose which claims to adopt and reject.
