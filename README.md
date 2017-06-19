@@ -61,7 +61,7 @@ We have to often decide which signifiers are signified the **same** thing.
 Upon deciding which signifiers are about the same entity, we resolve the abstract claims to specific claims about entitites. This claims can sometimes conflict. We have to choose which claims to adopt and reject.
 
 
-### Data Modle
+### Data Model
 Informing all of this is a data model. This is more or less formal model of the portion of the world that the researcher cares about and her belief about how those portions are related. For example, for security force monitoring, we believe and care to believe that security forces are organizations composoed of sub organizations; these oranizations and suborganizations have names, that they have commanding officers; etc. We believe that those commanding officers are people, and that these people have names, and birthdates, and previous posts. We may also believe that they have favorite colors, but probably won't include that in our model.
 
 The data model determines 
