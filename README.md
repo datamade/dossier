@@ -30,7 +30,7 @@ I know this is the type of tool you've though of for a while. It would be great 
 The work of collecting information about an entity can organized into the following stages
 
 ### 1 **Physical** Collection of artifacts
-In our projects the physical will mean collecting some files. For a security forces example, this could be audio testimony from witnesses and victimes. Collecting news articles or official documentation and scanning.
+In our projects the physical will mean collecting some files. For a security forces example, this could be audio testimony from witnesses and victims. Or, it could mean collecting news articles or official documentation and scanning.
 
 Here, it is important to collect
 - who or what did the collecting. when, where
