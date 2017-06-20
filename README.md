@@ -123,6 +123,8 @@ At the level of *Adjudication*, the processes that can produce inference include
 
 Notice that these levels of inference are **cumulative and hierarchical**, corresponding to a ladder of abstraction. Each level of inference builds on the previous levels, indicating that both *meaning* and *error* propogate as we move up into higher levels of abstraction.
 
+![Inference Diagram](./images/inference_diagram.png)
+
 ### Data Model
 Informing all of this is a data model. This is more or less formal model of the portion of the world that the researcher cares about and her belief about how those portions are related. For example, for security force monitoring, we believe and care to believe that security forces are organizations composoed of sub organizations; these oranizations and suborganizations have names, that they have commanding officers; etc. We believe that those commanding officers are people, and that these people have names, and birthdates, and previous posts. We may also believe that they have favorite colors, but probably won't include that in our model.
 
