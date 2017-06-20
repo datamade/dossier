@@ -36,13 +36,13 @@ An open database of companies, focused on determining subsidiary and branch rela
 
 One of the biggest challenges to developing dossiers is **managing and archiving inferences**. At every level of data collection – from text extraction, to entity resolution, to drawing org charts – there are different kinds of claims that are made about the relationship between sources (data) and entities (the world). Our goal is to develop a consistent language to describe these different kinds of inferences, and use that language to construct a data model that would allow the users of a dossier tool to efficiently collect and audit these claims. 
 
-The work of collecting information about an entity can be roughly organized into **five levels of inference**. At each level, we want to collect metadata about:
+We believe that the work of collecting information about an entity can be roughly organized into **five levels of inference**. At each level, we want to collect metadata about:
 
 - Who or what made the inference
 - When and where the inference was made
-- What process produced the inference (human or computer reasoning)
+- What reasoning process produced the inference (be it human- or machine-driven)
 
-### 1 Text: *Collecting source artifacts*
+### 1. Text: *Collecting source artifacts*
 
 Every claim about the world starts with a source artifact, or *Text*, that contains information that humans can interpret as language. For us, Texts are most often different types of files: word processing documents, PDFs, markup, spreadsheets, etc. If we were building a dossier about security forces, for example, Texts might be audio testimony from witnesses and victims, news articles about security force activity, or scanned government documents.
 
@@ -81,21 +81,45 @@ At the level of *Signifiers*, the processes that can produce inference include:
 
 ### 4a. Syntax: *Interpreting abstract claims about Signifiers*
 
-If we have a spreadsheet that has a columns call "donor", "recipient", and "amount", we might interpret a row of data as making the following claims:
+*This unit happens at the same level of abstraction as unit 4b, but we believe it to be a distinct form of inference.*
 
-- There exists some entity with designated by the token in the "donor" field.
-- There exists some entity with designated by the token in the "recipient" field.
-- The entity designated by the token in the "recipient" field recieved an amount of money designed by the "amount" field from the entity designated by the token in the "donor" field
+Syntax defines relationships between Signifiers.
+
+For example, suppose we have a spreadsheet that has columns labeled "donor", "recipient", and "amount". We might interpret a row of data as making the following claims:
+
+1. There exists some entity designated by the token in the "donor" field (Signifier)
+2. There exists some entity designated by the token in the "recipient" field (Signifier)
+3. The entity designated by the token in the "recipient" field recieved an amount of money designed by the "amount" field from the entity designated by the token in the "donor" field (Syntax)
+
+By making a claim of the Syntax type in inference #3, we map a relationship between three distinct entities that we infer to exist from the Text: "recipient" gives "amount" of money to "donor."
+
+At the level of *Syntax*, the processes that can produce inference include:
+
+- Human judgment
+- (NLP processes?)
 
 ### 4b. Referents: *Resolving entities among Signifiers* 
 
-Positing that a signifier or signifiers are referential to particular entity.
+*This unit happens at the same level of abstraction as unit 4a, but we believe it to be a distinct form of inference.*
 
-We have to often decide which signifiers designate the **same** thing. 
+By defining a Signifier, we've linked Tokens to abstract classes of entities, but we haven't actually posited that the Signifier is referential to a *particular* entity in the real world. Defining a Referent involves making that conceptual link, such that we can connect the Signifiers and Syntax we've inferred (such as "John Smith is a security force lieutenant") to concrete entities in the real world (such as "*This particular* John Smith, *who we believe was involved in a militia incident in Kinshasa in May 2017*, is a security force lieutenant").
+
+At the level of *Referents*, the processes that can produce inference include:
+
+- Dedupe.io entity resolution
+- Human judgment
 
 ### 5. Adjudication: *Accepting or rejecting abstract claims (Syntax) about entities (Referents)*
 
-Upon deciding which signifiers are about the same entity, we resolve the abstract claims to specific claims about entitites. Claims can sometimes conflict. We have to choose which claims to adopt and reject, and store our reasoning about which claim is most likely and why.
+Upon deciding which Signifiers are about the same entity (Referent), and what Syntax relates those Referents, we resolve the abstract claims to specific claims about entities. But claims can sometimes conflict, so we have to choose which claims to adopt and reject, and store our reasoning about which claim is most likely and why.
+
+At the level of *Adjudication*, the processes that can produce inference include:
+
+- Logical syntax ("A security force can have at most one commander at a moment in time")
+- Belief pooling
+- Human judgment
+
+### Levels of abstraction
 
 Notice that these levels of inference are **cumulative and hierarchical**, corresponding to a ladder of abstraction. Each level of inference builds on the previous levels, indicating that both *meaning* and *error* propogate as we move up into higher levels of abstraction.
 
