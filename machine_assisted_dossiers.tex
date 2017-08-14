@@ -18,7 +18,7 @@
   requires discernment, sorting, and judgment.
 
   We are still are only beginning to building technologies that are
-  complementary to these human capacities -- allowing for
+  complementary to these human capacities--allowing for
   scale.  In this paper, we present the capabilities we believe an
   adequate knowledge system must have, drawing heavily from the field
   of genealogy and our own work modeling international security forces
@@ -26,5 +26,234 @@
 \end{abstract}
 
 \maketitle
+
+Most of the time, investigative journalists use data and documents
+that were not made for them. The material that they FOIA, scrape, get
+leaked, download from data portals, or dig up from the archives
+were not made for journalists or intended to help answer the
+questions she is reporting.
+
+In order to do their work, journalists have to struggle to get access
+to documents or administrative data; manage large collections of
+source files; extract the relevant information; identify ambiguous
+references; and reconcile conflicting claims.
+
+That journalists accomplish these tasks and relatively quickly is a
+testament to their skills as researchers. These skills though are
+private and focused on the investigations at hand. The work does not
+accumulate a store of knowledge that can be reused by future
+journalists for new investigations.
+
+Though journalists and newsrooms would benefit from building shared
+dossiers of the key people and organizations in a beat, this is not a
+common practice. The reasons for this are various, but we believe a
+substantial barrier is that existing tools do not provide immediate
+benefits to a journalist in the middle of an investigation. It may be
+very helpful for a journalist to look up what the news room already
+knows about a city councilor in an internal wiki, but adding new
+content to the wiki is just an additional chore. 
+
+At DataMade, we have been building and researching knowledge
+management systems that can help the investigators in the many stages of
+research and which, almost as a byproduct, produce shared dossiers of
+people and organizations. In this paper, we discuss the capabilities
+that a well designed system should possess.
+
+\section{Scope Conditions}
+Knowledge management systems trade off between flexibility and
+utility. In order to provide more support for journalists and other
+researchers, a system must be designed for a defined universe of
+knowledge to manage --- the types of organizations, persons, and
+events; the attributes of those entities; and the relations amongst
+them.
+
+With these set, the designer of the system can identify source
+material with potential relevance, what pieces of information that
+will be important in the source material, what facets of the
+information will be useful to index, and what types of claims are
+congruent or incompatible.
+
+The more defined the field of knowledge, the more that information
+technology can aid the production of that knowledge. However, given
+the current costs of building, a limited field of knowledge is not
+sufficient. These types of systems should only be
+built where three conditions are met. First, there is fairly narrow
+knowledge area that has wide and durable interest. Second, the number
+concrete instances of knowledge is much larger than one person can
+manage using private skills. Three, there is a large corpus of primary
+source material that can be used to develop concrete knowledge in a
+repeatable and separable manner. 
+
+Some examples include:
+
+\begin{description}
+  \item [Geneology] Who were the parents of whom. When and where was a person
+    born and when and where did they die.
+  \item [Corporate Beneficiaries] Who ultimately owns or controls an
+    organization, which may be owned by a chain of shell organizations
+  \item [Security Forces] What is the organizational structure of
+    security forces. Who are the commanding officers of units and
+    what has been their careers.
+  \item [Campaign Finance] Who, ultimately, gave money to which
+    political campaigns, even through intermediaries.
+  \item [Human Rights Violations] Who and how many people have been
+    killed in an armed conflict
+\end{description}
+
+In the full paper, we will provide examples from all these domains.
+
+\section{Document Management}
+The system must have the capability to collect the source material
+which will be the evidence to support the development of
+knowledge and make those materials convenient for the purposes of
+research. The set of problems here are largely covered under the field
+of document management and there already exists many excellent tools
+for this portion of the task.
+
+For our purposes, we are using ``document'' to mean any type of source
+material. They are most often different types of files: word
+processing documents, PDFs, markup, spreadsheets, etc. They could
+include audio testimony, news articles, or FOIAed documents.
+
+Beyond storage, the three key capabilities for document management
+portion of the system is to capture the provenance of source material;
+converting the source material into convenient formats; and indexing
+the documents in support of research.
+
+\subsection{Provenance}
+As the knowledge developed within the system ultimately depends upon
+source documents, the provenance of those documents must be
+recorded. Who or what (if it was an automated scraper) collected the
+material, when, from what original location. The original forms of the
+documents must be preserved.
+
+\subsection{Formatting}
+Often, source material is not in a convenient format for computer
+processing. A file may be in an awkward or proprietary format, or a
+document may only be collected as scanned image. As part of the
+research process, the material may be converted to a form that allows
+for easier processing. Sometimes this conversion is unproblematic,
+like for many file format conversions. Sometimes, the conversion is
+very error prone such as OCRing a scanned document or human
+transcription of audio recordings.
+
+Regardless, the details about the conversion need to be recorded ---
+who or what did the conversion and when. If the process was done by
+computer, steps must be taken to ensure that the conversion is
+completely reproducible. As technologies or other capabilities
+improve, the journalist or researcher may want to reconvert existing
+documents and conversion metadata supports this.
+
+\subsection{Indexing}
+Finally, appropriately formatted documents should be indexed for the
+next stage of research. While the systems should to full-text indexing
+to allow for flexible searches, the system should also attempt to
+index the documents on facets relevant to the target knowledge
+area. This means that the system should attempt to identify references
+within a document to the types of person, organizations, places, and
+events that the overall system is concerned with.
+
+If the source material is already highly structured, this can be
+simple. However, if the material is free text, then the system should
+be attempt to identify references using Named Entity Recognition
+techniques. 
+
+\section{Claim Management}
+Once the documentary base is prepared, the work of extracting claims
+about the world from those documents, resolving those claims to
+reference particular entities, and reconciling conflicting claims can
+begin. Unlike document management, the practices for what we call
+``claim management'' are still developing.
+
+\subsection{Extracting Claims}
+Given a source document, a journalist will extract claims relevant to
+the entity of interest. If they are researching campaign finance, they
+might be interested in the extracting the claim that ``John Smith''
+gave \$500 to ``Citizens for Better Citizens'' on December 11, 2017
+from a financial disclosure form of the ``Citizens for Better
+Citizens'' political action committee.
+
+While system should allow the journalist to extract the claims in the
+most natural, practicable manner, the system should decompose compound
+claims into simpler claims. For example, the above
+claim could be broken down as follows:
+
+\begin{itemize}
+\item ``John Smith'' made a contribution to this committee
+\item ``John Smith'' made a contribution during the reporting period of this disclosure
+\item ``John Smith'' made a contribution to this committee on December 11, 2017
+\item ``John Smith'' gave this committee \$500
+\item somebody gave this committee \$500 during this reporting period
+\item somebody gave this committee \$500 on December 11, 2017
+\end{itemize}
+
+Extracting claims is effortful. While full compound claims are often
+incorrect in some particular, elements of the claim can often be
+maintained and this decomposition preserves some of the initial work.
+
+The types of claims that can be recorded are those that the system has
+been designed to handle. The system must capture and preserve data on
+who or what extracted the claim and when this extraction occurred.
+
+\subsection{Resolving Claims}
+In the cases we deal with, there is almost always ambiguity about
+which particular entity a claim in a document is about. While a
+journalist will believe they are extracting a claim about a particular
+person or organization, they can find that they have been
+mistaken. Using the above example, a journalist can mistakenly
+attribute a campaign contribution to the wrong ``John Smith.''
+
+The knowledge system must allow for this type of ambiguity by avoiding
+modeling extracted claims as claims about particular
+instances. Internally, an extracted claim attached to a particular
+dossier would be modeled as two related claims. The first is the one
+extracted from the document: `A person with the name ``John Smith''
+gave \$500 to this committee.' The second claim is `The person who is
+referenced in the extracted claim is the person who this system
+uniquely indexes with the unique identifier ``1313515'''
+
+If claims about particularly people are split in this way, then
+extracted claims can be re-assigned to the correct entities as the
+journalist develops a more accurate picture.
+
+
+\subsection{Reconciling Claims}
+Since the knowledge systems work within limited fields of knowledge,
+the system designers can elaborate a model of how the this portion of
+the world should operate. This can allow for the flagging of claims
+that are logically incompatible. For example, campaign committees have
+founding dates, so there should be no contributions from a campaign
+committee before it was founded. 
+
+With or without the help of system, the journalist must decide which
+claims are compatible and decide which, if any, they want to
+accept. The system must be able to record the journalists belief about
+the validity of a claim about a particular person or
+organization. These decisions should be reversible.
+
+\section{To Develop}
+The full paper will flesh out all of the above sections and also discuss
+the following points
+
+\begin{itemize}
+  \item Allowing different journalists to attach resolve the same
+    claims to different entities or accepting different claims as
+    valid
+  \item The interface between the document management and claim
+    management flows
+  \item The interface of the dossier details views
+  \item Allowing for the attachment of custom documents and extraneous
+    information to a dossier
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
