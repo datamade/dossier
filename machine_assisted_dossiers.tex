@@ -8,6 +8,7 @@
 \affiliation{DataMade}
 \email{jean.cochrane@datamade.us}
 \author{Timothy McGovern}
+\affiliation{O'Reilly Media}
 \email{timmymcg@gmail.com}
 \begin{document}
 
@@ -23,6 +24,8 @@
   adequate knowledge system must have, drawing heavily from the field
   of genealogy and our own work modeling international security forces
   and campaign finance.
+
+  We'll discuss the overall requirements for such a system and try to envision its user experience and its data architecture; we'll also survey where currently available technologies can fill in the gaps between the two. 
 \end{abstract}
 
 \maketitle
@@ -44,6 +47,8 @@ private and focused on the investigations at hand. The work does not
 accumulate a store of knowledge that can be reused by future
 journalists for new investigations.
 
+The promise of computers, meantime, is to offer speed (enabling the analysis of larger corpora of source material), scale (enabling the analysis of larger webs of interrelated facts), and memory (enabling knowledge to be stored and shared, whether for reproducing an analysis or for bringing the knowledge to bear on a new problem). 
+
 Though journalists and newsrooms would benefit from building shared
 dossiers of the key people and organizations in a beat, this is not a
 common practice. The reasons for this are various, but we believe a
@@ -57,10 +62,10 @@ At DataMade, we have been building and researching knowledge
 management systems that can help the investigators in the many stages of
 research and which, almost as a byproduct, produce shared dossiers of
 people and organizations. In this paper, we discuss the capabilities
-that a well designed system should possess.
+that a well designed system should possess, from the perspective of information architecture and end-user experience.
 
 \section{Scope Conditions}
-Knowledge management systems trade off between flexibility and
+Existing knowledge management systems trade off between flexibility and
 utility. In order to provide more support for journalists and other
 researchers, a system must be designed for a defined universe of
 knowledge to manage --- the types of organizations, persons, and
@@ -72,6 +77,7 @@ material with potential relevance, what pieces of information that
 will be important in the source material, what facets of the
 information will be useful to index, and what types of claims are
 congruent or incompatible.
+
 
 The more defined the field of knowledge, the more that information
 technology can aid the production of that knowledge. However, given
@@ -98,9 +104,10 @@ Some examples include:
     political campaigns, even through intermediaries.
   \item [Human Rights Violations] Who and how many people have been
     killed in an armed conflict
+  \item [Customer Resource Management] The nature and relationships of individuals and organizations; the history of contacts between them. 
 \end{description}
 
-In the full paper, we will provide examples from all these domains.
+We will draw on examples from all these domains.
 
 \section{Document Management}
 The system must have the capability to collect the source material
@@ -157,6 +164,12 @@ If the source material is already highly structured, this can be
 simple. However, if the material is free text, then the system should
 be attempt to identify references using Named Entity Recognition
 techniques. 
+
+Indexing is the most basic form of computer analysis of documents. It enables non-trivial analysis of topics and relevant entities through simple counting and co-location analysis, and when combined with minimal provenance data (chronology), can provide evidence of change over time. Indexing also provides the basis for building a databases of named entities.
+
+\section{Entity Management}
+
+Once we have secured our documents, regularized them, and indexed them, producing a searchable list of entities is rewarding both immediately and in the long term. ``What do we know about Jane Tye?'' is a question that can be usefully answered with a keyword-in-context (KWIC) search, even when the search produces hundreds of hits. Entity management also can entail using machine learning techniques to preliminarily classify entities. This may entail sifting out individuals from organizations, or well-connected individuals from peripheral ones, but we can start to see the basis for machine-assisted analysis of large data sets.
 
 \section{Claim Management}
 Once the documentary base is prepared, the work of extracting claims
@@ -239,6 +252,11 @@ the following points
   \item Allowing different journalists to attach resolve the same
     claims to different entities or accepting different claims as
     valid
+
+    A DAG/tree model for using or interacting with the claims management system. Working in a scratch space to test out ``what if this John Doe is the same person as Jay Doe?''
+  \item The parts of the problem that can be solved with off-the-shelf components.
+  \item Maintaining fuzziness about categories, both to allow for changing understanding and flexibility in use of a system.
+  \item Model claim dependencies. ``Person 1313515 gave over a hundred thousand dollars to candidates under a variety of names and companies'' depends on these fourteen other related claimes.
   \item The interface between the document management and claim
     management flows
   \item The interface of the dossier details views
