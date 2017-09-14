@@ -64,9 +64,49 @@ research and which, almost as a byproduct, produce shared dossiers of
 people and organizations. In this paper, we discuss the capabilities
 that a well designed system should possess, from the perspective of information architecture and end-user experience.
 
+\section{Existing Tools}
+Existing knowledge management systems prioritize flexibility for the
+individual researcher over general utility for a team, or for a wider
+audience. When individual researchers are given great freedom over the
+structure and organization of the information they collect, other
+stakeholders lose out, since the knowledge must be translated into a form
+they can understand. When the needs of a wider audience are prioritized,
+however, the system loses capacity for tolerating ambiguity, and the
+liberty of individual researchers is constrained.
+
+Here, we consider the affordances and limitations of a few of the most
+popular tools for knowledge management in research contexts.
+
+\begin{description}
+  \item [Notecards] Collecting and organizing analog files remains
+    a popular research method, for good reason. Using notecards, an
+    individual researcher is free to organize and reorganize a
+    knowledge system however she pleases. Notecards neatly illustrate
+    the tradeoff between flexibility and utility involved in designing
+    a knowledge system: they offer total control to the individual
+    researcher at great cost to the general public, for whom the system
+    must be painstakingly translated to be of any use at all.
+
+  \item [Scrivener] Composition tools like Scrivener port the visual
+    and mechanical metaphors of analog research methods to digital
+    contexts. With these tools, information can be recorded in digitized
+    form, but it is still completely unstructured. The individual
+    researcher is able to keep track of more and more different kinds
+    of information, but translation is still required in order for others
+    to make sense of it.
+
+  \item [Wikis] In contrast to notecards and digital composition tools,
+    wikis prioritize the needs of a collective of stakeholders over the
+    individual researcher. Information is sometimes structured and
+    attached to specific sources, and the process that produced the
+    knowledge can be preserved in discussion forums. In a wiki, however,
+    individual researchers lose a great deal of power in order to create
+    value for the collective: knowledge is subject to collective approval,
+    and conflicting truth claims must be reconciled fully and immediately.
+\end{description}
+
 \section{Scope Conditions}
-Existing knowledge management systems trade off between flexibility and
-utility. In order to provide more support for journalists and other
+In order to provide more support for journalists and other
 researchers, a system must be designed for a defined universe of
 knowledge to manage --- the types of organizations, persons, and
 events; the attributes of those entities; and the relations amongst
@@ -107,7 +147,49 @@ Some examples include:
   \item [Customer Resource Management] The nature and relationships of individuals and organizations; the history of contacts between them. 
 \end{description}
 
-We will draw on examples from all these domains.
+Consider three different organizations, each working in one of these problem
+domains, each with separate missions but similar sets of problems:
+
+Security Force Monitor is a nonprofit based out of Columbia University
+with the mission of tracking of security force activity in conflict areas
+around the world. Maintaining a robust knowledge system is a key part of
+their mission, but it is a difficult task: keeping track of security forces
+requires keeping track of large quantities of ambiguous
+information—information that has been retrieved from unreliable sources,
+primarily secondary news reports, and that is then adjudicated by staff
+members who lack authoritative context. For any given assertion about a
+human rights violation to be credible, the knowledge system must know
+where each piece of information came from, which researcher catalogued it,
+and the degree of confidence the researcher had in the assertion. Yet for
+the system to be useful to an audience outside of the internal research
+team, it must also be capable of adjudicating conflicting claims and
+presenting a structured view of the security forces and the incidents
+they have been involved in.
+
+Invisible Institute is a nonprofit media organization in Chicago that
+reports on misconduct in the Chicago Police Department (CPD). Following
+their legal victory in Kalven v. City of Chicago in 2014, which opened
+up over 56,000 complaints against CPD officers to the public, they have
+released a database of complaint records to the public with detailed
+demographic information about complainants and officers involved in
+alleged misconduct. The organization would like to be able to produce
+a dossier of CPD officers in order to to link these complaints to other
+kinds of misconduct records, but the source records that they FOIA from
+the CPD and the City of Chicago are typically difficult to parse, and
+lack the unique identifiers that would allow them to unambiguously
+assign responsibility for incidents.
+
+FamilySearch is a service provided by the Church of Latter-Day Saints
+that seeks to build detailed genealogies using demographic records.
+The service sources much of its information from old census records,
+which are OCRed and then interpreted by staff members, but it also allows
+users to upload their own records and contest genealogies recorded by the
+system. Every claim must be tied to a specific record, and contested
+assertions are eventually adjudicated.
+
+As we describe the necessary features of machine-assisted dossiers, we will
+refer back to the problems and solutions that these three organizations
+engage with in their attempts to build comprehensive knowledge systems.
 
 \section{Document Management}
 The system must have the capability to collect the source material
@@ -243,6 +325,35 @@ claims are compatible and decide which, if any, they want to
 accept. The system must be able to record the journalists belief about
 the validity of a claim about a particular person or
 organization. These decisions should be reversible.
+
+\section{Differences in Implementation}
+
+Different knowledge domains have different research needs. When
+implementing a machine-assisted dossier, trade-offs will have to be made
+between the flexibility afforded to individual researchers and the
+usability of the system for a wider collective. Specific implementations
+of the system we propose will vary in the degree to which they permit
+the following features:
+
+\begin{description}
+  \item [Conflict resolution] It may be beneficial to some systems to
+    allow conflicting claims about entities or attributes to coexist,
+    and to expose these conflicts to users. Other systems will want
+    to enforce a unitary vision of the world.
+
+  \item [Custom attachments] Researchers may wish to collect unstructured
+    data in the system, in order to keep track of information they might
+    need at a later date, or to pursue promising lines of inquiry that
+    have not yet proven to be valuable to the collective.
+
+  \item [Interface between document collection and claim management] When
+    conflicting claims get resolved, it is likely that logic will
+    want to propagate down toward decisions made in the lower levels
+    of document collection. Some systems will want to adjust these lower
+    levels automatically; others will want to expose inconsistencies to
+    researchers through the system interface, to allow them to adjudicate
+    the claims. Still others may wish to permit logical inconsistencies.
+\end{description}
 
 \section{To Develop}
 The full paper will flesh out all of the above sections and also discuss
