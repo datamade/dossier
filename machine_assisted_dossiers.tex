@@ -1,4 +1,5 @@
 \documentclass[format=siggraph, review=true]{acmart}
+\usepackage{graphicx}
 \acmConference{Computation + Journalism Symposium}{October 2017}{Chicago, IL}
 \title{Machine Assisted Dossiers}
 \author{Forest Gregg}
@@ -395,6 +396,100 @@ following tasks:
 
 We now provide example interfaces for how these tasks can be
 accomplished.
+
+\section*{Family Search Implementation}
+This tasks are best elaborated in a discussion of concrete
+implementation. The most sophisticated implementation we have seen in
+the FamilySearch.com, a geneology site operated by the Church of
+Latter Day Saints. 
+
+\subsection*{Person Profile Page}
+FamilySearch has a profile page for current person in their
+system. The page contains an impressive amount of information and
+functions without overwhelming the user.
+
+\begin{figure}[h]
+
+\includegraphics[width=\columnwidth]{images/familysearch/person-detail-1.png}
+
+\caption{FamilySearch Person Profile Page}
+\end{figure}
+
+The site includes all the information that users have claimed as true
+about this person. Clicking on piece of information shows the he
+details about the claim for inspection --the user that made the
+claim, when the claim was made, and the source record that supports
+the claim (Figure~\ref{fig:name-detail}).
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/name-detail.png}
+\caption{Claim Details}
+\label{fig:name-detail}
+\end{figure}
+
+New claims can be made in this detail view. The system will recorded
+the user that made the claim, when it was made, and the justification
+for the claim (Figure~\ref{name-edit}).
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/name-edit.png}
+\caption{Adding Claims}
+\label{fig:name-edit}
+\end{figure}
+
+The profile page also can suggest source records that might be
+relevant to this person (Figure~\ref{fig:record-hint}).
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/record-hint.png}
+\caption{Source Record Suggestions}
+\label{fig:record-hint}
+\end{figure}
+
+If the claims made about a person are logically impossible or just
+very unlikely, the profile page shows these concerns
+(Figure~\ref{fig:data-problems}). FamilySearch allows users to
+enter logically impossible claims, but warns viewers of the
+page. Another system could decide to not allow users to enter
+logically impossible claims.
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/data_problems_detail.png}
+\caption{Unlikely or Impossible Claims}
+\label{fig:data-problems}
+\end{figure}
+
+\subsection*{Record Search and Interface}
+While users can directly make claims about persons on profile pages,
+the system strongly encourages people to make claims about people
+through the source record detail interfaces.
+
+Working with source records starts with the search page. The users can
+search by name, location of important life events, or the names of
+important relations to the focal person
+(Figure~\ref{fig:search-record}).
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/search-records.png}
+\caption{Unlikely or Impossible Claims}
+\label{fig:data-problems}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+This information can be directly edited on the page.
+
+
   
 \subsection{Uncertainty in Claims}
 Since the work of Lotfi Zadeh [TODO: Citation!], the worlds of logic and computer science have reckoned with uncertainty and partial truth using computation-friendly tools. Incorporating some measure of uncertainty into any calims (and enabling the adjustment of this level of uncertainty as new information is added) is an important part of claims management as well as detecting and reconciling conflicting claims. As Charles Ragin put it, ``fuzzy sets have the potential to transform research that is oriented toward `discovery,' toward gaining new insights about the world.'' (2000) Fuzzy logic enables us to test different understandings against the evidence. 
