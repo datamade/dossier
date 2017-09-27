@@ -346,7 +346,7 @@ committee before it was founded.
 
 With or without the help of system, the journalist must decide which
 claims are compatible and decide which, if any, they want to
-accept. The system must be able to record the journalists belief about
+accept. The system must be able to record the journalist's belief about
 the validity of a claim about a particular person or
 organization. These decisions should be reversible.
 
@@ -396,6 +396,19 @@ following tasks:
 We now provide example interfaces for how these tasks can be
 accomplished.
   
+\subsection{Uncertainty in Claims}
+Since the work of Lotfi Zadeh [TODO: Citation!], the worlds of logic and computer scinece have reckoned with uncertainty and partial truth using computation-friendly tools. Incorporating some measure of uncertainty into any calims (and enabling the adjustment of this level of uncertainty as new information is added) is an important part of claims management as well as detecting and reconciling conflicting claims. 
+
+Recording (and modifying) the reporter's uncertainty about a claim only records half of the uncertainty that is possible in the reportage/world-being-reported-on system. In addition to the uncertainty in knowledge, which can be modeled, there is uncertainty in the world—which can be exploited for political aims outside the law. Giorgio Agamben [TODO: Citation] and others have explored the implications of these ``states of exception'', which are often sites for radical shifts in power arrangements, or for activities outside the realm of the thinkable. A paradigmatic site of exception is the American military base at Guantànamo Bay; the multiple conflicting claims about political sovereignty at Guantànamo have enabled military and civilian commanders to exercise authority outside the oversight of courts. 
+
+[TODO: another recent example] Possible: 
+- Early rise of Nazis
+- Nudge-and-wink approval at Enron
+- Rwandan genocide
+
+
+As Agamben and others have pointed out, states of exception have both potential positive [TODO:expand in a phrase or sentence] and negative consequences, but in every case, they are a situation fraught with the danger of allowing lawlessness to take hold. Because of their political importance, early detection of states of exception, where formal structures of social order (sovereignty, chain of command, etc.) are breaking down or are blurred, is an important area where machine-assisted claims analysis could be of importance. 
+
 \section{Differences in Implementation}
 
 Different knowledge domains have different research needs. When
@@ -424,6 +437,55 @@ the following features:
     researchers through the system interface, to allow them to adjudicate
     the claims. Still others may wish to permit logical inconsistencies.
 \end{description}
+
+\section{The Path from Document Management to Claim Management}
+How do we get there from here? What parts of a claim management system already exist (or can be created using existing technology)? What parts of a claim management system can be modularized or extended? What is generalizable about different types of claim management and warrant management? 
+
+\subsection{Minimum Viable Product: Manage Easily Disproved Claims}
+Known problems, that is to say, already defined in ML terms: 
+- Entity extraction (including attribution)
+- Geo-location
+- Clustering/similarity
+- Topic Modeling
+- Social Network Analysis
+- Sentiment Analysis
+
+These may be appealing as the kinds of claims we want to start working with, but only some of these are amenable to a claims management system. [TODO: make the following less dogmatic. Present the option of adding on capacities where they exist as an alternate, though it might hamper the development of the claims management part] Where we want to start is not with well-studied problems in commercial computing applications (though we'll aim to make use of these) but rather with the most easily disproven claims. 
+
+This means starting with existence (entity extraction) and location for natural persons. Then moves onto formally defined social entities (corporations, military units) and formally defined relations between entities (ownership structures, chain of command, etc.). As a note of caution, while the tools of entity extraction and geo-location map well onto disprovable claims, many of the other tools of data science do not. While clustering, topic modeling, and social network analysis may point to the existence of relationships among entities, they do not distinguish between formal and informal networks and similarities. For 
+
+TODO: one paragraph on Zooniverse, drawing out the parth of developing an new Zooniverse app (and commonalities among Zooniverse topics).  
+- Experts create the (known) structures for the information. 
+- Raw evidence is parsed (in this case by humans) and recorded (with a chain of assertion). 
+- Conflicting warrants are raised as exceptions (delivered to more human interpreters)
+- Experts/project creators develop the knowledge framework. 
+
+TODO: one paragraph on development of Salesforce, from 7.0 (2006) to 40.0 (current). 
+
+
+\section{To Develop}
+The full paper will flesh out all of the above sections and also discuss
+the following points
+
+\begin{itemize}
+  \item Allowing different journalists to attach resolve the same
+    claims to different entities or accepting different claims as
+    valid
+
+    A DAG/tree model for using or interacting with the claims management system. Working in a scratch space to test out ``what if this John Doe is the same person as Jay Doe?''
+  \item The parts of the problem that can be solved with off-the-shelf components.
+  \item Maintaining fuzziness about categories, both to allow for changing understanding and flexibility in use of a system.
+  \item Model claim dependencies. ``Person 1313515 gave over a hundred thousand dollars to candidates under a variety of names and companies'' depends on these fourteen other related claimes.
+  \item The interface between the document management and claim
+    management flows
+  \item The interface of the dossier details views
+  \item Allowing for the attachment of custom documents and extraneous
+    information to a dossier
+\end{itemize}
+
+
+
+
 
 
 
