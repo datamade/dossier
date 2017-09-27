@@ -47,7 +47,11 @@ private and focused on the investigations at hand. The work does not
 accumulate a store of knowledge that can be reused by future
 journalists for new investigations.
 
-The promise of computers, meantime, is to offer speed (enabling the analysis of larger corpora of source material), scale (enabling the analysis of larger webs of interrelated facts), and memory (enabling knowledge to be stored and shared, whether for reproducing an analysis or for bringing the knowledge to bear on a new problem). 
+The promise of computers, meantime, is to offer speed (enabling the
+analysis of larger corpora of source material), scale (enabling the
+analysis of larger webs of interrelated facts), and memory (enabling
+knowledge to be stored and shared, whether for reproducing an analysis
+or for bringing the knowledge to bear on a new problem).
 
 Though journalists and newsrooms would benefit from building shared
 dossiers of the key people and organizations in a beat, this is not a
@@ -59,20 +63,26 @@ knows about a city councilor in an internal wiki, but adding new
 content to the wiki is just an additional chore. 
 
 At DataMade, we have been building and researching knowledge
-management systems that can help the investigators in the many stages of
-research and which, almost as a byproduct, produce shared dossiers of
-people and organizations. In this paper, we discuss the capabilities
-that a well designed system should possess, from the perspective of information architecture and end-user experience.
+management systems that can help the investigators in the many stages
+of research and which, almost as a byproduct, produce shared dossiers
+of people and organizations. In this paper, we discuss the
+capabilities that a well designed system should possess, from the
+perspective of information architecture and end-user experience.
 
 \section{Existing Tools}
 Existing knowledge management systems prioritize flexibility for the
 individual researcher over general utility for a team, or for a wider
-audience. When individual researchers are given great freedom over the
-structure and organization of the information they collect, other
-stakeholders lose out, since the knowledge must be translated into a form
-they can understand. When the needs of a wider audience are prioritized,
-however, the system loses capacity for tolerating ambiguity, and the
-liberty of individual researchers is constrained.
+audience. 
+
+When individual researchers are afforded flexibility to organize
+information as they please, the information is almost always put into
+a form that suits the researcher's personal preferences and their
+current research topic. Considerable work is required to
+recontextualize the information into a form that is convenient for
+other uses. Conversely, when data must be organized to support the
+general uses and users, researchers usually lose capacity for
+tolerating ambiguity, and the tools is not perfectly adapted to the
+current project.
 
 Here, we consider the affordances and limitations of a few of the most
 popular tools for knowledge management in research contexts.
@@ -108,7 +118,7 @@ popular tools for knowledge management in research contexts.
 \section{Scope Conditions}
 In order to provide more support for journalists and other
 researchers, a system must be designed for a defined universe of
-knowledge to manage --- the types of organizations, persons, and
+knowledge to manage -- the types of organizations, persons, and
 events; the attributes of those entities; and the relations amongst
 them.
 
@@ -118,17 +128,16 @@ will be important in the source material, what facets of the
 information will be useful to index, and what types of claims are
 congruent or incompatible.
 
-
 The more defined the field of knowledge, the more that information
 technology can aid the production of that knowledge. However, given
 the current costs of building, a limited field of knowledge is not
-sufficient. These types of systems should only be
-built where three conditions are met. First, there is fairly narrow
-knowledge area that has wide and durable interest. Second, the number
-concrete instances of knowledge is much larger than one person can
-manage using private skills. Three, there is a large corpus of primary
-source material that can be used to develop concrete knowledge in a
-repeatable and separable manner. 
+sufficient. These types of systems should only be built where three
+conditions are met. First, there is fairly narrow knowledge area that
+has wide and durable interest. Second, the number concrete instances
+of knowledge is much larger than one person can manage using private
+skills. Three, there is a large corpus of primary source material that
+can be used to develop concrete knowledge in a repeatable and
+separable manner.
 
 Some examples include:
 
@@ -197,7 +206,8 @@ which will be the evidence to support the development of
 knowledge and make those materials convenient for the purposes of
 research. The set of problems here are largely covered under the field
 of document management and there already exists many excellent tools
-for this portion of the task.
+for this portion of the task. Within journalism, the prominent
+examples include DocumentCloud, aleph, and the PANDA project.
 
 For our purposes, we are using ``document'' to mean any type of source
 material. They are most often different types of files: word
@@ -247,11 +257,25 @@ simple. However, if the material is free text, then the system should
 be attempt to identify references using Named Entity Recognition
 techniques. 
 
-Indexing is the most basic form of computer analysis of documents. It enables non-trivial analysis of topics and relevant entities through simple counting and co-location analysis, and when combined with minimal provenance data (chronology), can provide evidence of change over time. Indexing also provides the basis for building a databases of named entities.
+Indexing is the most basic form of computer analysis of documents. It
+enables non-trivial analysis of topics and relevant entities through
+simple counting and co-location analysis, and when combined with
+minimal provenance data (chronology), can provide evidence of change
+over time. Indexing also provides the basis for building a databases
+of named entities.
 
 \section{Entity Management}
 
-Once we have secured our documents, regularized them, and indexed them, producing a searchable list of entities is rewarding both immediately and in the long term. ``What do we know about Jane Tye?'' is a question that can be usefully answered with a keyword-in-context (KWIC) search, even when the search produces hundreds of hits. Entity management also can entail using machine learning techniques to preliminarily classify entities. This may entail sifting out individuals from organizations, or well-connected individuals from peripheral ones, but we can start to see the basis for machine-assisted analysis of large data sets.
+Once we have secured our documents, regularized them, and indexed
+them, producing a searchable list of entities is rewarding both
+immediately and in the long term. ``What do we know about Jane Tye?''
+is a question that can be usefully answered with a keyword-in-context
+(KWIC) search, even when the search produces hundreds of hits. Entity
+management also can entail using machine learning techniques to
+preliminarily classify entities. This may entail sifting out
+individuals from organizations, or well-connected individuals from
+peripheral ones, but we can start to see the basis for
+machine-assisted analysis of large data sets.
 
 \section{Claim Management}
 Once the documentary base is prepared, the work of extracting claims
@@ -339,6 +363,52 @@ Recording (and modifying) the reporter's uncertainty about a claim only records 
 
 As Agamben and others have pointed out, states of exception have both potential positive [TODO:expand in a phrase or sentence] and negative consequences, but in every case, they are a situation fraught with the danger of allowing lawlessness to take hold. Because of their political importance, early detection of states of exception, where formal structures of social order (sovereignty, chain of command, etc.) are breaking down or are blurred, is an important area where machine-assisted claims analysis could be of importance. 
 
+\section{Example Designs}
+Researcher use of the system will be organized around number of tasks:
+
+\begin{description}
+\item[Creating an Entity] The user must be able to create new profile
+  page for an entity, either from scratch or through accepting a
+  system proposed entity
+\item[Viewing information on an Entity]
+\item[Adding and editing information about an entity] The system must
+  record all changes made the an entities attribute and maintain a
+  complete audit log. All modifications to an entity should be tied to
+  a document. This includes claims that 
+\item[Search entities] The user must be able to search for profiles of
+  existing entities using full text search or faceted search
+\item[Search documents] The user must be able search source documents
+  using full text and faceted search
+\item[View details about Document] The user must be able to view any
+  metadata about any individual document. The raw source material
+  itself, i.e. scanned image. If the system has attempted
+  to extract data from the document, this should be visible next to
+  the source document.
+\item[Correct extracted document information] If the system attempts
+  to extract data from documents, the system should allow users to
+  correct incorrect extractions. This should be fully auditable.
+\item[View high order structure]
+\item[Merge entities]
+\end{description}
+
+In order to assist the user, the system must be responsible for the
+following tasks:
+
+\begin{description}
+\item[Propose potentially relevant documents] When relevant to the
+  user's tasks the system should propose documents that might
+  contain relevant information about an entity
+\item[Propose possible entities] When relevant to the user's task, the
+  system should propose that the existence of an entity that seems to
+  referred to in one or more source systems
+\item[Warn of logically conflicting information] When users enter in
+  information about an entity that is logically impossible, the system
+  should warn the user.
+\end{description}
+
+We now provide example interfaces for how these tasks can be
+accomplished.
+  
 \section{Differences in Implementation}
 
 Different knowledge domains have different research needs. When
@@ -412,9 +482,6 @@ the following points
   \item Allowing for the attachment of custom documents and extraneous
     information to a dossier
 \end{itemize}
-
-
-
 
 
 
