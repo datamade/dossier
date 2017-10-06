@@ -327,17 +327,13 @@ the validity of a claim about a particular person or
 organization. These decisions should be reversible.
 
 \subsection{Uncertainty in Claims}
-Since the work of Lotfi Zadeh [TODO: Citation!], the worlds of logic and computer scinece have reckoned with uncertainty and partial truth using computation-friendly tools. Incorporating some measure of uncertainty into any calims (and enabling the adjustment of this level of uncertainty as new information is added) is an important part of claims management as well as detecting and reconciling conflicting claims. 
+Since the work of Lotfi Zadeh [TODO: Citation!], the worlds of logic and computer science have reckoned with uncertainty and partial truth using computation-friendly tools. Incorporating some measure of uncertainty into any calims (and enabling the adjustment of this level of uncertainty as new information is added) is an important part of claims management as well as detecting and reconciling conflicting claims. As Charles Ragin put it, ``fuzzy sets have the potential to transform research that is oriented toward `discovery,' toward gaining new insights about the world.'' (2000) Fuzzy logic enables us to test different understandings against the evidence. 
 
-Recording (and modifying) the reporter's uncertainty about a claim only records half of the uncertainty that is possible in the reportage/world-being-reported-on system. In addition to the uncertainty in knowledge, which can be modeled, there is uncertainty in the world—which can be exploited for political aims outside the law. Giorgio Agamben [TODO: Citation] and others have explored the implications of these ``states of exception'', which are often sites for radical shifts in power arrangements, or for activities outside the realm of the thinkable. A paradigmatic site of exception is the American military base at Guantànamo Bay; the multiple conflicting claims about political sovereignty at Guantànamo have enabled military and civilian commanders to exercise authority outside the oversight of courts. 
+Recording (and modifying) the reporter's uncertainty about a claim only records half of the uncertainty that is possible in the reportage/world-being-reported-on system. In addition to the uncertainty in knowledge, which can be modeled, there is uncertainty in the world—which can be exploited for political aims outside the law. Giorgio Agamben [TODO: Citation] and others have explored the implications of these ``states of exception'', where ``public law meets political necessity,'' that is to say, where the normal course of law is suspended in order to deal with extraordinary political phenomena.  These are often sites not merely for temporary resolution of drastic problems, but for radical shifts in power arrangements, or for activities outside the realm of the thinkable.  
 
-[TODO: another recent example] Possible: 
-- Early rise of Nazis
-- Nudge-and-wink approval at Enron
-- Rwandan genocide
+A paradigmatic site of exception is the American military base at Guantànamo Bay; the multiple conflicting claims about political sovereignty at Guantànamo have enabled military and civilian commanders to exercise authority outside the oversight of courts—enabled by presidential order that was intended to be a temporary response to the attacks of September 11. 
 
-
-As Agamben and others have pointed out, states of exception have both potential positive [TODO:expand in a phrase or sentence] and negative consequences, but in every case, they are a situation fraught with the danger of allowing lawlessness to take hold. Because of their political importance, early detection of states of exception, where formal structures of social order (sovereignty, chain of command, etc.) are breaking down or are blurred, is an important area where machine-assisted claims analysis could be of importance. 
+As Agamben and others have pointed out, states of exception have both potential positive (the German Constitution, for example, explicitly allows for an extralegal right of resistance to attempts to legally abolish the constitutional order) and negative consequences, but in every case, they are a situation fraught with the danger of allowing lawlessness to take hold. Because of their political importance, early detection of states of exception, where formal structures of social order (sovereignty, chain of command, etc.) are breaking down or are blurred, is an important area where machine-assisted claims analysis could be of importance. 
 
 \section{Differences in Implementation}
 
@@ -372,7 +368,7 @@ the following features:
 How do we get there from here? What parts of a claim management system already exist (or can be created using existing technology)? What parts of a claim management system can be modularized or extended? What is generalizable about different types of claim management and warrant management? 
 
 \subsection{Minimum Viable Product: Manage Easily Disproved Claims}
-Known problems, that is to say, already defined in ML terms: 
+Many of the problems of claims extraction and mangement are already known problems to software creators, that is to say, they already defined in ML terms: 
 - Entity extraction (including attribution)
 - Geo-location
 - Clustering/similarity
@@ -380,17 +376,24 @@ Known problems, that is to say, already defined in ML terms:
 - Social Network Analysis
 - Sentiment Analysis
 
-These may be appealing as the kinds of claims we want to start working with, but only some of these are amenable to a claims management system. [TODO: make the following less dogmatic. Present the option of adding on capacities where they exist as an alternate, though it might hamper the development of the claims management part] Where we want to start is not with well-studied problems in commercial computing applications (though we'll aim to make use of these) but rather with the most easily disproven claims. 
+These may be appealing as the kinds of claims we want to start working with, but only some of these are immediately amenable to a claims management system. While it may be possible to cobble together a system of APIs and analyses, it seems to us that a better approach is to start from the the types of claims that are most amenable to being formalized and tracked in database form. 
 
-This means starting with existence (entity extraction) and location for natural persons. Then moves onto formally defined social entities (corporations, military units) and formally defined relations between entities (ownership structures, chain of command, etc.). As a note of caution, while the tools of entity extraction and geo-location map well onto disprovable claims, many of the other tools of data science do not. While clustering, topic modeling, and social network analysis may point to the existence of relationships among entities, they do not distinguish between formal and informal networks and similarities. For 
+Where therefore propose beginning not with the most well-studied problems in commercial computing applications (though we'll aim to make use of these) but rather with the most easily disproven claims. 
 
-TODO: one paragraph on Zooniverse, drawing out the parth of developing an new Zooniverse app (and commonalities among Zooniverse topics).  
+This means starting with existence (entity extraction) and location for natural persons. Then moves onto formally defined social entities (corporations, military units) and formally defined relations between entities (ownership structures, chain of command, etc.). As a note of caution, while the tools of entity extraction and geo-location map well onto disprovable claims, many of the other tools of data science do not. While clustering, topic modeling, and social network analysis may point to the existence of relationships among entities, they do not distinguish between formal and informal networks and similarities. For the purposes of recording, analyzing, and perhaps most crucially, sharing claims, these methods don't allow for a generalizable method of looking at claims for a different purpose.
+
+\section{Examples of systems for managing structured claims}
+Let's look briefly at two more systems for generalizably managing structured claims. The first is the Zooniverse project, which enables crowdsourcing of documentary analysis in many fields, and the other is the well-known CRM, Salesforce. 
+
+Zooniverse makes it possible to crowdsource the creation of structured data from unstructured or handwritten data. [TODO: insert screenshots. https://www.zooniverse.org/help  or ] It's been developed for and used by researchers in many different fields, from astronomy to history. The general framework for developing a project is as follows.
 - Experts create the (known) structures for the information. 
 - Raw evidence is parsed (in this case by humans) and recorded (with a chain of assertion). 
 - Conflicting warrants are raised as exceptions (delivered to more human interpreters)
-- Experts/project creators develop the knowledge framework. 
+- Experts/project creators analyze and (often) make publicly available the structured data. 
 
-TODO: one paragraph on development of Salesforce, from 7.0 (2006) to 40.0 (current). 
+Several design attributes from Zooniverse are applicable to Dossier. In addition to high-quality handling of the associations between claim, warrant, and evidence (recording the chain of analysis, up to and including the version of the project that a warrant was built in), the design of the project encourages creation of structured and falsifiable information. ``The crowd'' is not an authoritative source for high-level analysis of scientific topics, but it is good at identifying well-defined entities, relationships, and even actions (Operation War Diary, for example https://www.operationwardiary.org/ structures information about troop movements from WWI military records.)
+
+We can see another project built for managing claims extensibly in Salesforce. Even better, we can see its extension over the past decade, from 81 types of standard objects in Salesforce 7.0 (2006) to over 700 objects in version 40.0 (current). Given that the process of finding, nurturing, and closing a sales lead has not changed (tenfold) over the past eleven years, the salient point to be drawn from the development of Salesforce's ERD is the fact that preserving more and more subtle points drawn from real-world relationships, even within a fairly narrow field of human endeavor, means ever-increasing complexity. The market drives Salesforce's generalizability: Salesforce record is a nearly Borgesian attempt to map one type of relationship for as many possible companies as possible.
 
 
 \section{To Develop}
