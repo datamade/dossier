@@ -1,4 +1,5 @@
 \documentclass[format=siggraph, review=true]{acmart}
+\usepackage{graphicx}
 \acmConference{Computation + Journalism Symposium}{October 2017}{Chicago, IL}
 \title{Machine Assisted Dossiers}
 \author{Forest Gregg}
@@ -346,7 +347,7 @@ committee before it was founded.
 
 With or without the help of system, the journalist must decide which
 claims are compatible and decide which, if any, they want to
-accept. The system must be able to record the journalists belief about
+accept. The system must be able to record the journalist's belief about
 the validity of a claim about a particular person or
 organization. These decisions should be reversible.
 
@@ -395,7 +396,243 @@ following tasks:
 
 We now provide example interfaces for how these tasks can be
 accomplished.
-  
+
+\section*{Family Search Implementation}
+This tasks are best elaborated in a discussion of concrete
+implementation. The most sophisticated implementation we have seen in
+the FamilySearch.com, a geneology site operated by the Church of
+Latter Day Saints. 
+
+\subsection*{Person Profile Page}
+FamilySearch has a profile page for current person in their
+system. The page contains an impressive amount of information and
+functions without overwhelming the user.
+
+\begin{figure}[h]
+
+\includegraphics[width=\columnwidth]{images/familysearch/person-detail-1.png}
+
+\caption{FamilySearch Person Profile Page}
+\end{figure}
+
+The site includes all the information that users have claimed as true
+about this person. Clicking on piece of information shows the he
+details about the claim for inspection --the user that made the
+claim, when the claim was made, and the source record that supports
+the claim (Figure~\ref{fig:name-detail}).
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/name-detail.png}
+\caption{Claim Details}
+\label{fig:name-detail}
+\end{figure}
+
+New claims can be made in this detail view. The system will recorded
+the user that made the claim, when it was made, and the justification
+for the claim (Figure~\ref{name-edit}).
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/name-edit.png}
+\caption{Adding Claims}
+\label{fig:name-edit}
+\end{figure}
+
+The profile page also can suggest source records that might be
+relevant to this person (Figure~\ref{fig:record-hint}).
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/record-hint.png}
+\caption{Source Record Suggestions}
+\label{fig:record-hint}
+\end{figure}
+
+If the claims made about a person are logically impossible or just
+very unlikely, the profile page shows these concerns
+(Figure~\ref{fig:data-problems}). FamilySearch allows users to
+enter logically impossible claims, but warns viewers of the
+page. Another system could decide to not allow users to enter
+logically impossible claims.
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/data_problems_detail.png}
+\caption{Unlikely or Impossible Claims}
+\label{fig:data-problems}
+\end{figure}
+
+\subsection*{Record Search and Interface}
+While users can directly make claims about persons on profile pages,
+the system strongly encourages people to make claims about people
+through the source record detail interfaces.
+
+Working with source records starts with the search page. The users can
+search by name, location of important life events, or the names of
+important relations to the focal person
+(Figure~\ref{fig:search-record}).
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/search-records.png}
+\caption{Search}
+\label{fig:search-record}
+\end{figure}
+
+The search results show the name and other information that have been
+extracted from the source record. Clicking on a result shows details
+about the source document, all information extracted from the source
+document related to the focal person, and a link an image of the
+source document.
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/search_result_detail.png}
+\caption{Search Detail}
+\label{fig:search-details}
+\end{figure}
+
+If the user decides that a record is relevant to her person of
+interest, she will click the ``Attach to Family Tree'' button, which
+takes the user to a ``source linker'' page. Here, she sees a two
+column view where she can align references that appear in a record to
+persons with existing profile pages.
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/source_linker.png}
+\caption{Source Linker}
+\label{fig:source-linker}
+\end{figure}
+
+For each reference, she can decide to link it to a person or not. If a
+piece of information is in the record but not in the profile, it can
+be added. Information added here will show up on the profile page, and
+be linked back to the source record.
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/add_info.png}
+\caption{Add Information from Source Record}
+\label{fig:source-linker}
+\end{figure}
+
+While FamilySearch.org has many other sophisticated features, the last
+we'll touch on is the view they make available for the connections
+between persons. In addition the person focused information available
+on a profile page--parents, siblings, children, and
+spouse--the site also provides a network view of these relations as
+family tree.
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/family_tree.png}
+\caption{Family Tree}
+\label{fig:source-linker}
+\end{figure}
+
+\section*{Security Force Monitor Implementation}
+The staff of the Security Force Monitor use news articles to build an
+accurate information about the security forces active within a region
+of interest, their organizational structure, and the careers of
+officers within that structure.
+
+The knowledge management system that DataMade is building with
+Security Force Monitor has many of the same types of elements as
+FamilySearch.com. The similarities and differences demonstrate the
+requirements for this type of system.
+
+Like FamilySearch.org, current information about an entity will be
+available on a profile view. However, Security Force Monitor needs to
+manage information about two types of entities: officers and
+organizational units. For an officer, we will track the name,
+appearances at particular places and times, membership in
+organizational units and the role associated with that membership, and
+the directly superordinate and subordinate officers at particular
+times (Figure~\ref{fig:entity-detail}).
+
+For organizational units, we will record the name, observations of the
+unit or members of the units at particular places and times, direct
+superunit and subunits of the units, and the history of commanding
+officers of the unit.
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/sketches/entity-detail.png}
+\caption{Profile View}
+\label{fig:entity-detail}
+\end{figure}
+
+Unlike Family Search, the Security Force Monitor workflow is flow is
+not sharply divided between source document acquisition and indexing
+on one hand versus claim management on the other.
+
+A key task for staff is to extract information about an relevant
+people and organizations from a news item. From the user's
+perspective, they are directly connecting the information in the news
+article to an existing profile page, but the system actually records
+this information as two distinct sets of claims. First, this source
+document mentions an entity with this name, i.e. ``XI
+Battalion''. Second, this name references the entity known to this
+system as ``12135117'' Later, if we decide that this name actually
+refers to some other batallion, we can re-use the first half of the
+work done by the staff.
+
+The user interface for this extraction will mainly through the
+annotation of source documents (Figure~\ref{fig:new-entities}). The user
+will select text from a news item that refers to an entity of
+interest, which will prompt the user to record a claim. The universe
+of possible types of claims is constrained by the system but can
+include claims like ``A unit called `XI Batallion' operates in the
+`Southern Province' as of the time of this news article'' or ``The `XI
+Batallion` is commanded by `John Doe' as of the time of this news
+article'. Representations of these claims will appear on profile pages
+and be linked back to the source document.
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/sketches/new-entities.png}
+\caption{Source Extraction}
+\label{fig:new-entities}
+\end{figure}
+
+The Security Force Monitor staff will often be focused on the same
+area and security forces. Indivividual users need means to track how
+the changes other users are making directly or indirectly effect the
+entities they are responsible for. Users will be able to ``watch''
+entities and be notified about changes that impinge on those entities
+as well as their own recent actions (Figure~\ref{fig:dashboard}).
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/sketches/dashboard.png}
+\caption{Source Extraction}
+\label{fig:dashboard}
+\end{figure}
+
+
+
+\subsection{Uncertainty in Claims}
+Since the work of Lotfi Zadeh [TODO: Citation!], the worlds of logic
+and computer science have reckoned with uncertainty and partial truth
+using computation-friendly tools. Incorporating some measure of
+uncertainty into any claims (and enabling the adjustment of this level
+of uncertainty as new information is added) is an important part of
+claims management as well as detecting and reconciling conflicting
+claims.
+
+
+Recording (and modifying) the reporter's uncertainty about a claim
+only records half of the uncertainty that is possible in the
+reportage/world-being-reported-on system. In addition to the
+uncertainty in knowledge, which can be modeled, there is uncertainty
+in the world.
+
+As a few examples, the officer who has formal authority over a
+security force unit may not be the person who has effective
+leadership. Between units, formally subordinate units may act with
+autonomy than officially granted. The scope of authority between
+political commisars and commanding officers often overlap and are
+contested. Between security units, particularly those in forces that
+are blend of separate chains of commands, as in multinational
+commands, the formal chain of command can change rapidly and sometimes
+not unitary.
+
+These occasions, where authority, leadership, and command are
+ambiguous or contested make certain types of abuses more likely, and
+indeed ambiguity is often created by leadership to protect themselves
+from a policy of violence and oppression. This type of uncertainty
+also needs to modeled.
+
 \section{Differences in Implementation}
 
 Different knowledge domains have different research needs. When
@@ -425,6 +662,28 @@ the following features:
     the claims. Still others may wish to permit logical inconsistencies.
 \end{description}
 
+\section{Conclusion}
+We have discussed what we see as necessary for a knowledge system that
+helps journalists and other types of researchers do their research
+and, as a byproduct, produce reusable knowledge for themselves and
+their colleagues. In particular, we have discussed the requirements
+for managing claims about the world and discussed possible
+implementations to satisfy those requirements.
+
+While it is useful to describe clearly what those requirements are,
+there is still significant opportunity left to make it easier to build
+these types of systems in the future. As we mentioned, the document
+management and indexing systems are fairly mature and modular. We
+believe that it will be possible to see similar development in the
+work of claim management. 
+
+
+
+
+
+
+
+
 
 
 
@@ -432,3 +691,4 @@ the following features:
 
 
 \end{document}
+
