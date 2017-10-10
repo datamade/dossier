@@ -471,34 +471,167 @@ important relations to the focal person
 
 \begin{figure}[h]
 \includegraphics[width=\columnwidth]{images/familysearch/search-records.png}
-\caption{Unlikely or Impossible Claims}
-\label{fig:data-problems}
+\caption{Search}
+\label{fig:search-record}
+\end{figure}
+
+The search results show the name and other information that have been
+extracted from the source record. Clicking on a result shows details
+about the source document, all information extracted from the source
+document related to the focal person, and a link an image of the
+source document.
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/search_result_detail.png}
+\caption{Search Detail}
+\label{fig:search-details}
+\end{figure}
+
+If the user decides that a record is relevant to her person of
+interest, she will click the ``Attach to Family Tree'' button, which
+takes the user to a ``source linker'' page. Here, she sees a two
+column view where she can align references that appear in a record to
+persons with existing profile pages.
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/source_linker.png}
+\caption{Source Linker}
+\label{fig:source-linker}
+\end{figure}
+
+For each reference, she can decide to link it to a person or not. If a
+piece of information is in the record but not in the profile, it can
+be added. Information added here will show up on the profile page, and
+be linked back to the source record.
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/add_info.png}
+\caption{Add Information from Source Record}
+\label{fig:source-linker}
+\end{figure}
+
+While FamilySearch.org has many other sophisticated features, the last
+we'll touch on is the view they make available for the connections
+between persons. In addition the person focused information available
+on a profile page--parents, siblings, children, and
+spouse--the site also provides a network view of these relations as
+family tree.
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/familysearch/family_tree.png}
+\caption{Family Tree}
+\label{fig:source-linker}
+\end{figure}
+
+\section*{Security Force Monitor Implementation}
+The staff of the Security Force Monitor use news articles to build an
+accurate information about the security forces active within a region
+of interest, their organizational structure, and the careers of
+officers within that structure.
+
+The knowledge management system that DataMade is building with
+Security Force Monitor has many of the same types of elements as
+FamilySearch.com. The similarities and differences demonstrate the
+requirements for this type of system.
+
+Like FamilySearch.org, current information about an entity will be
+available on a profile view. However, Security Force Monitor needs to
+manage information about two types of entities: officers and
+organizational units. For an officer, we will track the name,
+appearances at particular places and times, membership in
+organizational units and the role associated with that membership, and
+the directly superordinate and subordinate officers at particular
+times (Figure~\ref{fig:entity-detail}).
+
+For organizational units, we will record the name, observations of the
+unit or members of the units at particular places and times, direct
+superunit and subunits of the units, and the history of commanding
+officers of the unit.
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/sketches/entity-detail.png}
+\caption{Profile View}
+\label{fig:entity-detail}
+\end{figure}
+
+Unlike Family Search, the Security Force Monitor workflow is flow is
+not sharply divided between source document acquisition and indexing
+on one hand versus claim management on the other.
+
+A key task for staff is to extract information about an relevant
+people and organizations from a news item. From the user's
+perspective, they are directly connecting the information in the news
+article to an existing profile page, but the system actually records
+this information as two distinct sets of claims. First, this source
+document mentions an entity with this name, i.e. ``XI
+Battalion''. Second, this name references the entity known to this
+system as ``12135117'' Later, if we decide that this name actually
+refers to some other batallion, we can re-use the first half of the
+work done by the staff.
+
+The user interface for this extraction will mainly through the
+annotation of source documents (Figure~\ref{fig:new-entities}). The user
+will select text from a news item that refers to an entity of
+interest, which will prompt the user to record a claim. The universe
+of possible types of claims is constrained by the system but can
+include claims like ``A unit called `XI Batallion' operates in the
+`Southern Province' as of the time of this news article'' or ``The `XI
+Batallion` is commanded by `John Doe' as of the time of this news
+article'. Representations of these claims will appear on profile pages
+and be linked back to the source document.
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/sketches/new-entities.png}
+\caption{Source Extraction}
+\label{fig:new-entities}
+\end{figure}
+
+The Security Force Monitor staff will often be focused on the same
+area and security forces. Indivividual users need means to track how
+the changes other users are making directly or indirectly effect the
+entities they are responsible for. Users will be able to ``watch''
+entities and be notified about changes that impinge on those entities
+as well as their own recent actions (Figure~\ref{fig:dashboard}).
+
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{images/sketches/dashboard.png}
+\caption{Source Extraction}
+\label{fig:dashboard}
 \end{figure}
 
 
 
-
-
-
-
-
-
-
-
-
-
-This information can be directly edited on the page.
-
-
-  
 \subsection{Uncertainty in Claims}
-Since the work of Lotfi Zadeh [TODO: Citation!], the worlds of logic and computer science have reckoned with uncertainty and partial truth using computation-friendly tools. Incorporating some measure of uncertainty into any calims (and enabling the adjustment of this level of uncertainty as new information is added) is an important part of claims management as well as detecting and reconciling conflicting claims. As Charles Ragin put it, ``fuzzy sets have the potential to transform research that is oriented toward `discovery,' toward gaining new insights about the world.'' (2000) Fuzzy logic enables us to test different understandings against the evidence. 
+Since the work of Lotfi Zadeh [TODO: Citation!], the worlds of logic
+and computer science have reckoned with uncertainty and partial truth
+using computation-friendly tools. Incorporating some measure of
+uncertainty into any claims (and enabling the adjustment of this level
+of uncertainty as new information is added) is an important part of
+claims management as well as detecting and reconciling conflicting
+claims.
 
-Recording (and modifying) the reporter's uncertainty about a claim only records half of the uncertainty that is possible in the reportage/world-being-reported-on system. In addition to the uncertainty in knowledge, which can be modeled, there is uncertainty in the world—which can be exploited for political aims outside the law. Giorgio Agamben [TODO: Citation] and others have explored the implications of these ``states of exception'', where ``public law meets political necessity,'' that is to say, where the normal course of law is suspended in order to deal with extraordinary political phenomena.  These are often sites not merely for temporary resolution of drastic problems, but for radical shifts in power arrangements, or for activities outside the realm of the thinkable.  
 
-A paradigmatic site of exception is the American military base at Guantànamo Bay; the multiple conflicting claims about political sovereignty at Guantànamo have enabled military and civilian commanders to exercise authority outside the oversight of courts—enabled by presidential order that was intended to be a temporary response to the attacks of September 11. 
+Recording (and modifying) the reporter's uncertainty about a claim
+only records half of the uncertainty that is possible in the
+reportage/world-being-reported-on system. In addition to the
+uncertainty in knowledge, which can be modeled, there is uncertainty
+in the world.
 
-As Agamben and others have pointed out, states of exception have both potential positive (the German Constitution, for example, explicitly allows for an extralegal right of resistance to attempts to legally abolish the constitutional order) and negative consequences, but in every case, they are a situation fraught with the danger of allowing lawlessness to take hold. Because of their political importance, early detection of states of exception, where formal structures of social order (sovereignty, chain of command, etc.) are breaking down or are blurred, is an important area where machine-assisted claims analysis could be of importance. 
+As a few examples, the officer who has formal authority over a
+security force unit may not be the person who has effective
+leadership. Between units, formally subordinate units may act with
+autonomy than officially granted. The scope of authority between
+political commisars and commanding officers often overlap and are
+contested. Between security units, particularly those in forces that
+are blend of separate chains of commands, as in multinational
+commands, the formal chain of command can change rapidly and sometimes
+not unitary.
+
+These occasions, where authority, leadership, and command are
+ambiguous or contested make certain types of abuses more likely, and
+indeed ambiguity is often created by leadership to protect themselves
+from a policy of violence and oppression. This type of uncertainty
+also needs to modeled.
 
 \section{Differences in Implementation}
 
@@ -529,57 +662,23 @@ the following features:
     the claims. Still others may wish to permit logical inconsistencies.
 \end{description}
 
-\section{The Path from Document Management to Claim Management}
-How do we get there from here? What parts of a claim management system already exist (or can be created using existing technology)? What parts of a claim management system can be modularized or extended? What is generalizable about different types of claim management and warrant management? 
+\section{Conclusion}
+We have discussed what we see as necessary for a knowledge system that
+helps journalists and other types of researchers do their research
+and, as a byproduct, produce reusable knowledge for themselves and
+their colleagues. In particular, we have discussed the requirements
+for managing claims about the world and discussed possible
+implementations to satisfy those requirements.
 
-\subsection{Minimum Viable Product: Manage Easily Disproved Claims}
-Many of the problems of claims extraction and mangement are already known problems to software creators, that is to say, they already defined in ML terms: 
-- Entity extraction (including attribution)
-- Geo-location
-- Clustering/similarity
-- Topic Modeling
-- Social Network Analysis
-- Sentiment Analysis
-
-These may be appealing as the kinds of claims we want to start working with, but only some of these are immediately amenable to a claims management system. While it may be possible to cobble together a system of APIs and analyses, it seems to us that a better approach is to start from the the types of claims that are most amenable to being formalized and tracked in database form. 
-
-Where therefore propose beginning not with the most well-studied problems in commercial computing applications (though we'll aim to make use of these) but rather with the most easily disproven claims. 
-
-This means starting with existence (entity extraction) and location for natural persons. Then moves onto formally defined social entities (corporations, military units) and formally defined relations between entities (ownership structures, chain of command, etc.). As a note of caution, while the tools of entity extraction and geo-location map well onto disprovable claims, many of the other tools of data science do not. While clustering, topic modeling, and social network analysis may point to the existence of relationships among entities, they do not distinguish between formal and informal networks and similarities. For the purposes of recording, analyzing, and perhaps most crucially, sharing claims, these methods don't allow for a generalizable method of looking at claims for a different purpose.
-
-\section{Examples of systems for managing structured claims}
-Let's look briefly at two more systems for generalizably managing structured claims. The first is the Zooniverse project, which enables crowdsourcing of documentary analysis in many fields, and the other is the well-known CRM, Salesforce. 
-
-Zooniverse makes it possible to crowdsource the creation of structured data from unstructured or handwritten data. [TODO: insert screenshots. https://www.zooniverse.org/help  or ] It's been developed for and used by researchers in many different fields, from astronomy to history. The general framework for developing a project is as follows.
-- Experts create the (known) structures for the information. 
-- Raw evidence is parsed (in this case by humans) and recorded (with a chain of assertion). 
-- Conflicting warrants are raised as exceptions (delivered to more human interpreters)
-- Experts/project creators analyze and (often) make publicly available the structured data. 
-
-Several design attributes from Zooniverse are applicable to Dossier. In addition to high-quality handling of the associations between claim, warrant, and evidence (recording the chain of analysis, up to and including the version of the project that a warrant was built in), the design of the project encourages creation of structured and falsifiable information. ``The crowd'' is not an authoritative source for high-level analysis of scientific topics, but it is good at identifying well-defined entities, relationships, and even actions (Operation War Diary, for example https://www.operationwardiary.org/ structures information about troop movements from WWI military records.)
-
-We can see another project built for managing claims extensibly in Salesforce. Even better, we can see its extension over the past decade, from 81 types of standard objects in Salesforce 7.0 (2006) to over 700 objects in version 40.0 (current). Given that the process of finding, nurturing, and closing a sales lead has not changed (tenfold) over the past eleven years, the salient point to be drawn from the development of Salesforce's ERD is the fact that preserving more and more subtle points drawn from real-world relationships, even within a fairly narrow field of human endeavor, means ever-increasing complexity. The market drives Salesforce's generalizability: Salesforce record is a nearly Borgesian attempt to map one type of relationship for as many possible companies as possible.
+While it is useful to describe clearly what those requirements are,
+there is still significant opportunity left to make it easier to build
+these types of systems in the future. As we mentioned, the document
+management and indexing systems are fairly mature and modular. We
+believe that it will be possible to see similar development in the
+work of claim management. 
 
 
-\section{To Develop}
-The full paper will flesh out all of the above sections and also discuss
-the following points
 
-\begin{itemize}
-  \item Allowing different journalists to attach resolve the same
-    claims to different entities or accepting different claims as
-    valid
-
-    A DAG/tree model for using or interacting with the claims management system. Working in a scratch space to test out ``what if this John Doe is the same person as Jay Doe?''
-  \item The parts of the problem that can be solved with off-the-shelf components.
-  \item Maintaining fuzziness about categories, both to allow for changing understanding and flexibility in use of a system.
-  \item Model claim dependencies. ``Person 1313515 gave over a hundred thousand dollars to candidates under a variety of names and companies'' depends on these fourteen other related claimes.
-  \item The interface between the document management and claim
-    management flows
-  \item The interface of the dossier details views
-  \item Allowing for the attachment of custom documents and extraneous
-    information to a dossier
-\end{itemize}
 
 
 
@@ -592,3 +691,4 @@ the following points
 
 
 \end{document}
+
