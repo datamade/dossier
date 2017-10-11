@@ -19,14 +19,14 @@
   contradictory. Developing an accurate image of the world still
   requires discernment, sorting, and judgment.
 
-  We are still are only beginning to building technologies that are
+  We are still only beginning to build technologies that are
   complementary to these human capacities--allowing for
-  scale.  In this paper, we present the capabilities we believe an
+  scale. In this paper, we present the capabilities we believe an
   adequate knowledge system must have, drawing heavily from the field
   of genealogy and our own work modeling international security forces
   and campaign finance.
 
-  We'll discuss the overall requirements for such a system and try to envision its user experience and its data architecture; we'll also survey where currently available technologies can fill in the gaps between the two. 
+  We'll discuss the overall requirements for such a system and try to envision its user experience and its data architecture; we'll also survey where currently available technologies can fill in the gaps between the two.
 \end{abstract}
 
 \maketitle
@@ -35,16 +35,16 @@ Most of the time, investigative journalists use data and documents
 that were not made for them. The material that they FOIA, scrape, get
 leaked, download from data portals, or dig up from the archives
 were not made for journalists or intended to help answer the
-questions she is reporting.
+questions they are reporting.
 
 In order to do their work, journalists have to struggle to get access
 to documents or administrative data; manage large collections of
 source files; extract the relevant information; identify ambiguous
 references; and reconcile conflicting claims.
 
-That journalists accomplish these tasks and relatively quickly is a
-testament to their skills as researchers. These skills though are
-private and focused on the investigations at hand. The work does not
+That journalists accomplish these tasks, and that they do so relatively quickly,
+is a testament to their skills as researchers. These skills, however, are
+private, and focused on the investigations at hand. The work does not
 accumulate a store of knowledge that can be reused by future
 journalists for new investigations.
 
@@ -59,15 +59,15 @@ dossiers of the key people and organizations in a beat, this is not a
 common practice. The reasons for this are various, but we believe a
 substantial barrier is that existing tools do not provide immediate
 benefits to a journalist in the middle of an investigation. It may be
-very helpful for a journalist to look up what the news room already
+very helpful for a journalist to look up what the newsroom already
 knows about a city councilor in an internal wiki, but adding new
 content to the wiki is just an additional chore. 
 
 At DataMade, we have been building and researching knowledge
-management systems that can help the investigators in the many stages
+management systems that can help investigators in the many stages
 of research and which, almost as a byproduct, produce shared dossiers
 of people and organizations. In this paper, we discuss the
-capabilities that a well designed system should possess, from the
+capabilities that a well-designed system should possess, from the
 perspective of information architecture and end-user experience.
 
 \section{Existing Tools}
@@ -82,7 +82,7 @@ current research topic. Considerable work is required to
 recontextualize the information into a form that is convenient for
 other uses. Conversely, when data must be organized to support the
 general uses and users, researchers usually lose capacity for
-tolerating ambiguity, and the tools is not perfectly adapted to the
+tolerating ambiguity, and the tool is not perfectly adapted to the
 current project.
 
 Here, we consider the affordances and limitations of a few of the most
@@ -124,7 +124,7 @@ events; the attributes of those entities; and the relations amongst
 them.
 
 With these set, the designer of the system can identify source
-material with potential relevance, what pieces of information that
+material with potential relevance, what pieces of information
 will be important in the source material, what facets of the
 information will be useful to index, and what types of claims are
 congruent or incompatible.
@@ -133,8 +133,8 @@ The more defined the field of knowledge, the more that information
 technology can aid the production of that knowledge. However, given
 the current costs of building, a limited field of knowledge is not
 sufficient. These types of systems should only be built where three
-conditions are met. First, there is fairly narrow knowledge area that
-has wide and durable interest. Second, the number concrete instances
+conditions are met. First, there is a fairly narrow knowledge area that
+has wide and durable interest. Second, the number of concrete instances
 of knowledge is much larger than one person can manage using private
 skills. Three, there is a large corpus of primary source material that
 can be used to develop concrete knowledge in a repeatable and
@@ -146,22 +146,22 @@ Some examples include:
   \item [Geneology] Who were the parents of whom. When and where was a person
     born and when and where did they die.
   \item [Corporate Beneficiaries] Who ultimately owns or controls an
-    organization, which may be owned by a chain of shell organizations
+    organization, which may be owned by a chain of shell organizations.
   \item [Security Forces] What is the organizational structure of
     security forces. Who are the commanding officers of units and
     what has been their careers.
   \item [Campaign Finance] Who, ultimately, gave money to which
-    political campaigns, even through intermediaries.
+    political campaigns, directly or through intermediaries.
   \item [Human Rights Violations] Who and how many people have been
-    killed in an armed conflict
+    killed in an armed conflict.
   \item [Customer Resource Management] The nature and relationships of individuals and organizations; the history of contacts between them. 
 \end{description}
 
-Consider three different organizations, each working in one of these problem
-domains, each with separate missions but similar sets of problems:
+Consider two different organizations, both working in one of these problem
+domains, both with separate missions but similar sets of problems:
 
 Security Force Monitor is a nonprofit based out of Columbia University
-with the mission of tracking of security force activity in conflict areas
+with the mission of tracking security force activity in conflict areas
 around the world. Maintaining a robust knowledge system is a key part of
 their mission, but it is a difficult task: keeping track of security forces
 requires keeping track of large quantities of ambiguous
@@ -176,20 +176,7 @@ team, it must also be capable of adjudicating conflicting claims and
 presenting a structured view of the security forces and the incidents
 they have been involved in.
 
-Invisible Institute is a nonprofit media organization in Chicago that
-reports on misconduct in the Chicago Police Department (CPD). Following
-their legal victory in Kalven v. City of Chicago in 2014, which opened
-up over 56,000 complaints against CPD officers to the public, they have
-released a database of complaint records to the public with detailed
-demographic information about complainants and officers involved in
-alleged misconduct. The organization would like to be able to produce
-a dossier of CPD officers in order to to link these complaints to other
-kinds of misconduct records, but the source records that they FOIA from
-the CPD and the City of Chicago are typically difficult to parse, and
-lack the unique identifiers that would allow them to unambiguously
-assign responsibility for incidents.
-
-FamilySearch is a service provided by the Church of Latter-Day Saints
+FamilySearch is a service provided by the Church of Latter-day Saints
 that seeks to build detailed genealogies using demographic records.
 The service sources much of its information from old census records,
 which are OCRed and then interpreted by staff members, but it also allows
@@ -198,7 +185,7 @@ system. Every claim must be tied to a specific record, and contested
 assertions are eventually adjudicated.
 
 As we describe the necessary features of machine-assisted dossiers, we will
-refer back to the problems and solutions that these three organizations
+refer back to the problems and solutions that these two organizations
 engage with in their attempts to build comprehensive knowledge systems.
 
 \section{Document Management}
@@ -206,25 +193,25 @@ The system must have the capability to collect the source material
 which will be the evidence to support the development of
 knowledge and make those materials convenient for the purposes of
 research. The set of problems here are largely covered under the field
-of document management and there already exists many excellent tools
+of document management and there already exist many excellent tools
 for this portion of the task. Within journalism, the prominent
 examples include DocumentCloud, aleph, and the PANDA project.
 
 For our purposes, we are using ``document'' to mean any type of source
-material. They are most often different types of files: word
-processing documents, PDFs, markup, spreadsheets, etc. They could
-include audio testimony, news articles, or FOIAed documents.
+material. Documents are most often different types of files: word
+processing files, PDFs, markup, spreadsheets, etc. They could
+include audio testimony, news articles, or FOIAed records.
 
-Beyond storage, the three key capabilities for document management
-portion of the system is to capture the provenance of source material;
+Beyond storage, the three key capabilities for the document management
+portion of the system are: capturing the provenance of source material;
 converting the source material into convenient formats; and indexing
 the documents in support of research.
 
 \subsection{Provenance}
 As the knowledge developed within the system ultimately depends upon
 source documents, the provenance of those documents must be
-recorded. Who or what (if it was an automated scraper) collected the
-material, when, from what original location. The original forms of the
+recorded: who or what (if it was an automated scraper) collected the
+material, when, and from what original location. The original forms of the
 documents must be preserved.
 
 \subsection{Formatting}
@@ -234,35 +221,35 @@ document may only be collected as scanned image. As part of the
 research process, the material may be converted to a form that allows
 for easier processing. Sometimes this conversion is unproblematic,
 like for many file format conversions. Sometimes, the conversion is
-very error prone such as OCRing a scanned document or human
+very error-prone, such as OCRing a scanned document or human
 transcription of audio recordings.
 
 Regardless, the details about the conversion need to be recorded ---
-who or what did the conversion and when. If the process was done by
+who or what did the conversion and when. If the process was done by a
 computer, steps must be taken to ensure that the conversion is
 completely reproducible. As technologies or other capabilities
 improve, the journalist or researcher may want to reconvert existing
-documents and conversion metadata supports this.
+documents, and conversion metadata can support this goal.
 
 \subsection{Indexing}
 Finally, appropriately formatted documents should be indexed for the
-next stage of research. While the systems should to full-text indexing
+next stage of research. While the systems should do full-text indexing
 to allow for flexible searches, the system should also attempt to
 index the documents on facets relevant to the target knowledge
 area. This means that the system should attempt to identify references
-within a document to the types of person, organizations, places, and
+within a document to the types of people, organizations, places, and
 events that the overall system is concerned with.
 
 If the source material is already highly structured, this can be
 simple. However, if the material is free text, then the system should
-be attempt to identify references using Named Entity Recognition
+attempt to identify references using Named Entity Recognition
 techniques. 
 
 Indexing is the most basic form of computer analysis of documents. It
 enables non-trivial analysis of topics and relevant entities through
 simple counting and co-location analysis, and when combined with
 minimal provenance data (chronology), can provide evidence of change
-over time. Indexing also provides the basis for building a databases
+over time. Indexing also provides the basis for building a database
 of named entities.
 
 \section{Entity Management}
@@ -287,14 +274,14 @@ begin. Unlike document management, the practices for what we call
 
 \subsection{Extracting Claims}
 Given a source document, a journalist will extract claims relevant to
-the entity of interest. If they are researching campaign finance, they
-might be interested in the extracting the claim that ``John Smith''
+the entity of interest. If she is researching campaign finance, she
+might be interested in extracting the claim that ``John Smith''
 gave \$500 to ``Citizens for Better Citizens'' on December 11, 2017
 from a financial disclosure form of the ``Citizens for Better
 Citizens'' political action committee.
 
-While system should allow the journalist to extract the claims in the
-most natural, practicable manner, the system should decompose compound
+While the system should allow the journalist to extract the claims in the
+most natural, practicable manner, the system should also decompose compound
 claims into simpler claims. For example, the above
 claim could be broken down as follows:
 
@@ -318,8 +305,8 @@ who or what extracted the claim and when this extraction occurred.
 \subsection{Resolving Claims}
 In the cases we deal with, there is almost always ambiguity about
 which particular entity a claim in a document is about. While a
-journalist will believe they are extracting a claim about a particular
-person or organization, they can find that they have been
+journalist will believe she is extracting a claim about a particular
+person or organization, she can find that she has been
 mistaken. Using the above example, a journalist can mistakenly
 attribute a campaign contribution to the wrong ``John Smith.''
 
@@ -333,21 +320,21 @@ referenced in the extracted claim is the person who this system
 uniquely indexes with the unique identifier ``1313515'''
 
 If claims about particularly people are split in this way, then
-extracted claims can be re-assigned to the correct entities as the
+extracted claims can be reassigned to the correct entities as the
 journalist develops a more accurate picture.
 
 
 \subsection{Reconciling Claims}
-Since the knowledge systems work within limited fields of knowledge,
-the system designers can elaborate a model of how the this portion of
+Since the knowledge system works within limited fields of knowledge,
+the system designers can elaborate a model of how this portion of
 the world should operate. This can allow for the flagging of claims
 that are logically incompatible. For example, campaign committees have
 founding dates, so there should be no contributions from a campaign
 committee before it was founded. 
 
 With or without the help of system, the journalist must decide which
-claims are compatible and decide which, if any, they want to
-accept. The system must be able to record the journalist's belief about
+claims are compatible and decide which, if any, she wants to
+accept. The system must be able to record the journalist's belief in
 the validity of a claim about a particular person or
 organization. These decisions should be reversible.
 
@@ -355,28 +342,35 @@ organization. These decisions should be reversible.
 Researcher use of the system will be organized around number of tasks:
 
 \begin{description}
-\item[Creating an Entity] The user must be able to create new profile
+\item[Creating an entity] The user must be able to create a new profile
   page for an entity, either from scratch or through accepting a
-  system proposed entity
-\item[Viewing information on an Entity]
+  system proposed entity.
+\item[Viewing information about an entity] Users must be able to inspect
+  all the information about an entity that the system knows. Users should also
+  be able to save particular views that are relevant to their own research
+  avenues.
 \item[Adding and editing information about an entity] The system must
-  record all changes made the an entities attribute and maintain a
+  record all changes made to entity attributes and maintain a
   complete audit log. All modifications to an entity should be tied to
-  a document. This includes claims that 
+  a document.
 \item[Search entities] The user must be able to search for profiles of
-  existing entities using full text search or faceted search
-\item[Search documents] The user must be able search source documents
-  using full text and faceted search
-\item[View details about Document] The user must be able to view any
-  metadata about any individual document. The raw source material
-  itself, i.e. scanned image. If the system has attempted
+  existing entities using full text search or faceted search.
+\item[Search documents] The user must be able to search source documents
+  using full text and faceted search.
+\item[View details about documents] The user must be able to view any
+  metadata about any individual document, including the raw source material
+  itself, e.g. the scanned image. If the system has attempted
   to extract data from the document, this should be visible next to
   the source document.
 \item[Correct extracted document information] If the system attempts
   to extract data from documents, the system should allow users to
   correct incorrect extractions. This should be fully auditable.
-\item[View high order structure]
-\item[Merge entities]
+\item[View high order structure] The system must be capable of displaying the
+  structure of the entities that users are tracking in order to suggest points of
+  conflict and indicate new opportunities for elaboration.
+\item[Merge entities] In cases where entities turn out to be duplicates of one
+  another, the system must provide an interface for resolving the entity into
+  a canonical representation.
 \end{description}
 
 In order to assist the user, the system must be responsible for the
@@ -384,12 +378,12 @@ following tasks:
 
 \begin{description}
 \item[Propose potentially relevant documents] When relevant to the
-  user's tasks the system should propose documents that might
-  contain relevant information about an entity
+  user's task, the system should propose documents that might
+  contain relevant information about an entity.
 \item[Propose possible entities] When relevant to the user's task, the
-  system should propose that the existence of an entity that seems to
-  referred to in one or more source systems
-\item[Warn of logically conflicting information] When users enter in
+  system should propose the existence of an entity that seems to be
+  referred to in one or more source systems.
+\item[Warn of logically conflicting information] When the user enters in
   information about an entity that is logically impossible, the system
   should warn the user.
 \end{description}
@@ -397,14 +391,14 @@ following tasks:
 We now provide example interfaces for how these tasks can be
 accomplished.
 
-\section*{Family Search Implementation}
+\section*{FamilySearch Implementation}
 This tasks are best elaborated in a discussion of concrete
-implementation. The most sophisticated implementation we have seen in
-the FamilySearch.com, a geneology site operated by the Church of
-Latter Day Saints. 
+implementation. The most sophisticated implementation we have seen is
+FamilySearch.com, a geneology site operated by the Church of
+Latter-day Saints. 
 
 \subsection*{Person Profile Page}
-FamilySearch has a profile page for current person in their
+FamilySearch has a profile page for a current person in their
 system. The page contains an impressive amount of information and
 functions without overwhelming the user.
 
@@ -416,8 +410,8 @@ functions without overwhelming the user.
 \end{figure}
 
 The site includes all the information that users have claimed as true
-about this person. Clicking on piece of information shows the he
-details about the claim for inspection --the user that made the
+about this person. Clicking on a piece of information shows the
+details about the claim for inspection -- the user that made the
 claim, when the claim was made, and the source record that supports
 the claim (Figure~\ref{fig:name-detail}).
 
@@ -427,7 +421,7 @@ the claim (Figure~\ref{fig:name-detail}).
 \label{fig:name-detail}
 \end{figure}
 
-New claims can be made in this detail view. The system will recorded
+New claims can be made in this detail view. The system will record
 the user that made the claim, when it was made, and the justification
 for the claim (Figure~\ref{name-edit}).
 
@@ -437,7 +431,7 @@ for the claim (Figure~\ref{name-edit}).
 \label{fig:name-edit}
 \end{figure}
 
-The profile page also can suggest source records that might be
+The profile page can also suggest source records that might be
 relevant to this person (Figure~\ref{fig:record-hint}).
 
 \begin{figure}[h]
@@ -450,8 +444,8 @@ If the claims made about a person are logically impossible or just
 very unlikely, the profile page shows these concerns
 (Figure~\ref{fig:data-problems}). FamilySearch allows users to
 enter logically impossible claims, but warns viewers of the
-page. Another system could decide to not allow users to enter
-logically impossible claims.
+page that not all claims about a preson are congruent. Another system could
+decide to not allow users to enter logically impossible claims.
 
 \begin{figure}[h]
 \includegraphics[width=\columnwidth]{images/familysearch/data_problems_detail.png}
@@ -461,10 +455,10 @@ logically impossible claims.
 
 \subsection*{Record Search and Interface}
 While users can directly make claims about persons on profile pages,
-the system strongly encourages people to make claims about people
-through the source record detail interfaces.
+the system strongly encourages users to make claims about people
+through the source record detail interface.
 
-Working with source records starts with the search page. The users can
+Working with source records starts with the search page. Users can
 search by name, location of important life events, or the names of
 important relations to the focal person
 (Figure~\ref{fig:search-record}).
@@ -478,7 +472,7 @@ important relations to the focal person
 The search results show the name and other information that have been
 extracted from the source record. Clicking on a result shows details
 about the source document, all information extracted from the source
-document related to the focal person, and a link an image of the
+document related to the focal person, and a link to an image of the
 source document.
 
 \begin{figure}[h]
@@ -489,8 +483,8 @@ source document.
 
 If the user decides that a record is relevant to her person of
 interest, she will click the ``Attach to Family Tree'' button, which
-takes the user to a ``source linker'' page. Here, she sees a two
-column view where she can align references that appear in a record to
+takes the user to a ``source linker'' page. Here, she sees a two-column view
+where she can align references that appear in a record to
 persons with existing profile pages.
 
 \begin{figure}[h]
@@ -499,9 +493,9 @@ persons with existing profile pages.
 \label{fig:source-linker}
 \end{figure}
 
-For each reference, she can decide to link it to a person or not. If a
+For each reference, the user can decide to link it to a person or not. If a
 piece of information is in the record but not in the profile, it can
-be added. Information added here will show up on the profile page, and
+be added. Information added here will show up on the profile page and
 be linked back to the source record.
 
 \begin{figure}[h]
@@ -512,7 +506,7 @@ be linked back to the source record.
 
 While FamilySearch.org has many other sophisticated features, the last
 we'll touch on is the view they make available for the connections
-between persons. In addition the person focused information available
+between persons. In addition to the person-focused information available
 on a profile page--parents, siblings, children, and
 spouse--the site also provides a network view of these relations as
 family tree.
@@ -524,7 +518,7 @@ family tree.
 \end{figure}
 
 \section*{Security Force Monitor Implementation}
-The staff of the Security Force Monitor use news articles to build an
+The staff of the Security Force Monitor use news articles to build
 accurate information about the security forces active within a region
 of interest, their organizational structure, and the careers of
 officers within that structure.
@@ -535,7 +529,7 @@ FamilySearch.com. The similarities and differences demonstrate the
 requirements for this type of system.
 
 Like FamilySearch.org, current information about an entity will be
-available on a profile view. However, Security Force Monitor needs to
+available on a profile view. However, the Security Force Monitor needs to
 manage information about two types of entities: officers and
 organizational units. For an officer, we will track the name,
 appearances at particular places and times, membership in
@@ -554,14 +548,14 @@ officers of the unit.
 \label{fig:entity-detail}
 \end{figure}
 
-Unlike Family Search, the Security Force Monitor workflow is flow is
+Unlike Family Search, the Security Force Monitor workflow is
 not sharply divided between source document acquisition and indexing
 on one hand versus claim management on the other.
 
-A key task for staff is to extract information about an relevant
+A key task for staff is to extract information about relevant
 people and organizations from a news item. From the user's
-perspective, they are directly connecting the information in the news
-article to an existing profile page, but the system actually records
+perspective, she is directly connecting the information in the news
+article to an existing profile page, but the system will actually record
 this information as two distinct sets of claims. First, this source
 document mentions an entity with this name, i.e. ``XI
 Battalion''. Second, this name references the entity known to this
@@ -569,7 +563,7 @@ system as ``12135117'' Later, if we decide that this name actually
 refers to some other batallion, we can re-use the first half of the
 work done by the staff.
 
-The user interface for this extraction will mainly through the
+The user interface for this extraction will be provided mainly through the
 annotation of source documents (Figure~\ref{fig:new-entities}). The user
 will select text from a news item that refers to an entity of
 interest, which will prompt the user to record a claim. The universe
@@ -602,36 +596,36 @@ as well as their own recent actions (Figure~\ref{fig:dashboard}).
 
 
 \subsection{Uncertainty in Claims}
-Since the work of Lotfi Zadeh [TODO: Citation!], the worlds of logic
+Since the work of Lotfi Zadeh, the worlds of logic
 and computer science have reckoned with uncertainty and partial truth
 using computation-friendly tools. Incorporating some measure of
-uncertainty into any claims (and enabling the adjustment of this level
+uncertainty into any claim (and enabling the adjustment of this level
 of uncertainty as new information is added) is an important part of
 claims management as well as detecting and reconciling conflicting
 claims.
 
 
-Recording (and modifying) the reporter's uncertainty about a claim
+Recording (and modifying) the journalist's uncertainty about a claim
 only records half of the uncertainty that is possible in the
-reportage/world-being-reported-on system. In addition to the
-uncertainty in knowledge, which can be modeled, there is uncertainty
-in the world.
+knowledge system. In addition to the uncertainty in knowledge,
+which can be modeled, there is uncertainty in the world itself.
 
 As a few examples, the officer who has formal authority over a
 security force unit may not be the person who has effective
-leadership. Between units, formally subordinate units may act with
+leadership. Between units, formally subordinate units may act with more
 autonomy than officially granted. The scope of authority between
 political commisars and commanding officers often overlap and are
 contested. Between security units, particularly those in forces that
-are blend of separate chains of commands, as in multinational
+are blends of separate chains of commands, as in multinational
 commands, the formal chain of command can change rapidly and sometimes
-not unitary.
+not in a unitary manner.
 
 These occasions, where authority, leadership, and command are
-ambiguous or contested make certain types of abuses more likely, and
+ambiguous or contested, make certain types of abuses more likely, and
 indeed ambiguity is often created by leadership to protect themselves
-from a policy of violence and oppression. This type of uncertainty
-also needs to modeled.
+from a policy of violence and oppression. Fuzzy logics offer an
+opportunity for recording this type of uncertainty, in addition to
+the uncertainties of the research process.
 
 \section{Differences in Implementation}
 
@@ -667,7 +661,7 @@ We have discussed what we see as necessary for a knowledge system that
 helps journalists and other types of researchers do their research
 and, as a byproduct, produce reusable knowledge for themselves and
 their colleagues. In particular, we have discussed the requirements
-for managing claims about the world and discussed possible
+for managing claims about the world, and we have discussed possible
 implementations to satisfy those requirements.
 
 While it is useful to describe clearly what those requirements are,
