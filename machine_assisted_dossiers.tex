@@ -1,5 +1,6 @@
 \documentclass[format=siggraph, review=true]{acmart}
 \usepackage{graphicx}
+
 \acmConference{Computation + Journalism Symposium}{October 2017}{Chicago, IL}
 \title{Machine Assisted Dossiers}
 \author{Forest Gregg}
@@ -22,14 +23,15 @@
   complement these human capacities--but allow them to
   scale. In this paper, we present the capabilities we believe an
   adequate knowledge system must have, drawing heavily from the field
-  of genealogy and our own work modeling international security forces
-  and campaign finance.
+  of genealogy and our own work modeling international security forces.
 
-  We'll discuss the overall requirements for such a system and try to envision its user experience and its data architecture; we'll also survey where currently available technologies can fill in the gaps between the two.
+  We'll discuss the overall requirements for such a system and try to
+  envision its user experience and its data architecture; we'll also
+  survey where currently available technologies can fill in the gaps
+  between the two.
 \end{abstract}
 
 \maketitle
-
 Most of the time, investigative journalists use data and documents
 that were not made for them. The material that they FOIA, scrape, get
 leaked, download from data portals, or dig up from the archives
@@ -103,7 +105,7 @@ popular tools for knowledge management in research contexts.
     form, but it is still completely unstructured. The individual
     researcher is able to keep track of more and more different kinds
     of information, but translation is still required in order for others
-    to make sense of it.
+    to make sense of it.\cite{scrivener}
 
   \item [Wikis] In contrast to notecards and digital composition tools,
     wikis prioritize the needs of a collective of stakeholders over the
@@ -161,27 +163,29 @@ domains, both with separate missions but similar sets of problems:
 
 Security Force Monitor is a nonprofit based out of Columbia University
 with the mission of tracking security force activity in conflict areas
-around the world. Maintaining a robust knowledge system is a key part of
-their mission, but it is a difficult task: keeping track of security forces
-requires keeping track of large quantities of ambiguous
-information—information that has been retrieved from unreliable sources,
-primarily secondary news reports, and that is then adjudicated by staff
-members who lack authoritative context. For any given assertion about a
-human rights violation to be credible, the knowledge system must know
-where each piece of information came from, which researcher catalogued it,
-and the degree of confidence the researcher had in the assertion. Yet for
-the system to be useful to an audience outside of the internal research
-team, it must also be capable of adjudicating conflicting claims and
-presenting a structured view of the security forces and the incidents
-they have been involved in.
+around the world.\cite{sfm} Maintaining a robust knowledge system is a
+key part of their mission, but it is a difficult task: keeping track
+of security forces requires keeping track of large quantities of
+ambiguous information—information that has been retrieved from
+unreliable sources, primarily secondary news reports, and that is then
+adjudicated by staff members who lack authoritative context. For any
+given assertion about a human rights violation to be credible, the
+knowledge system must know where each piece of information came from,
+which researcher catalogued it, and the degree of confidence the
+researcher had in the assertion. Yet for the system to be useful to an
+audience outside of the internal research team, it must also be
+capable of adjudicating conflicting claims and presenting a structured
+view of the security forces and the incidents they have been involved
+in.
 
 FamilySearch is a service provided by the Church of Latter-day Saints
-that seeks to build detailed genealogies using demographic records.
-The service sources much of its information from old census records,
-which are OCRed and then interpreted by staff members, but it also allows
-users to upload their own records and contest genealogies recorded by the
-system. Every claim must be tied to a specific record, and contested
-assertions are eventually adjudicated.
+that seeks to build detailed genealogies using demographic
+records.\cite{familysearch} The service sources much of its
+information from old census records, which are OCRed and then
+interpreted by staff members, but it also allows users to upload their
+own records and contest genealogies recorded by the system. Every
+claim must be tied to a specific record, and contested assertions are
+eventually adjudicated.
 
 As we describe the necessary features of machine-assisted dossiers, we will
 refer back to the problems and solutions that these two organizations
@@ -194,7 +198,8 @@ knowledge and make those materials convenient for the purposes of
 research. The set of problems here are largely covered under the field
 of document management and there already exist many excellent tools
 for this portion of the task. Within journalism, the prominent
-examples include DocumentCloud, aleph, and the PANDA project.
+examples include DocumentCloud, aleph, and the PANDA
+project.\cite{documentcloud, aleph, panda}
 
 For our purposes, we are using ``document'' to mean any type of source
 material. Documents are most often different types of files: word
@@ -390,13 +395,13 @@ following tasks:
 We now provide example interfaces for how these tasks can be
 accomplished.
 
-\section*{FamilySearch Implementation}
+\section{FamilySearch Implementation}
 This tasks are best elaborated in a discussion of concrete
 implementation. The most sophisticated implementation we have seen is
 FamilySearch.com, a geneology site operated by the Church of
 Latter-day Saints. 
 
-\subsection*{Person Profile Page}
+\subsection{Person Profile Page}
 FamilySearch has a profile page for a current person in their
 system. The page contains an impressive amount of information and
 functions without overwhelming the user.
@@ -452,7 +457,7 @@ decide to not allow users to enter logically impossible claims.
 \label{fig:data-problems}
 \end{figure}
 
-\subsection*{Record Search and Interface}
+\subsection{Record Search and Interface}
 While users can directly make claims about persons on profile pages,
 the system strongly encourages users to make claims about people
 through the source record detail interface.
@@ -516,7 +521,7 @@ family tree.
 \label{fig:source-linker}
 \end{figure}
 
-\section*{Security Force Monitor Implementation}
+\section{Security Force Monitor Implementation}
 The staff of the Security Force Monitor use news articles to build
 accurate information about the security forces active within a region
 of interest, their organizational structure, and the careers of
@@ -597,7 +602,7 @@ as well as their own recent actions (Figure~\ref{fig:dashboard}).
 \subsection{Uncertainty in Claims}
 Since the work of Lotfi Zadeh, the worlds of logic
 and computer science have reckoned with uncertainty and partial truth
-using computation-friendly tools. Incorporating some measure of
+using computation-friendly tools.\cite{zadeh} Incorporating some measure of
 uncertainty into any claim (and enabling the adjustment of this level
 of uncertainty as new information is added) is an important part of
 claims management as well as detecting and reconciling conflicting
@@ -623,8 +628,8 @@ These occasions, where authority, leadership, and command are
 ambiguous or contested, make certain types of abuses more likely, and
 indeed ambiguity is often created by leadership to protect themselves
 from a policy of violence and oppression. Fuzzy logics offer an
-opportunity for not only recording but detecting this type of uncertainty, in addition to
-the uncertainties of the research process.
+opportunity for not only recording but detecting this type of
+uncertainty, in addition to the uncertainties of the research process.
 
 \section{Differences in Implementation}
 
@@ -677,10 +682,8 @@ work of claim management.
 
 
 
-
-
-
-
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{dossier}
 
 
 \end{document}
